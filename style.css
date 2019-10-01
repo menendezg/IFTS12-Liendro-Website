@@ -5,11 +5,81 @@
  * celeste: #00d1ed
  * background (grey): #424558
  */
- 
+
+body {
+    background-color: #424558 !important;
+}
+
 .nopadding {
     padding: 0;
 }
 
 .custom_bottom {
     padding-bottom: 100px;
+}
+
+.customnav {
+    background-color: #424558 !important;
+}
+
+.navbar-light .navbar-nav .nav-link {
+    color: #c7c7c7;
+}
+
+.navbar-light .navbar-nav .active>.nav-link,
+.navbar-light .navbar-nav .nav-link.active,
+.navbar-light .navbar-nav .nav-link.show,
+.navbar-light .navbar-nav .show>.nav-link {
+    color: #4fa9d5;
+}
+
+.fill-in {
+    object-fit: cover;
+}
+
+
+.branding-title {
+    color: #c7c7c7
+}
+
+.branding-paragraph {
+    color: #a8a8a6
+}
+
+
+
+.branding-title {
+    padding: 5%;
+    font-size: 40px;
+    font-family: oswald;
+    font-weight: 600;
+    padding-top: 20%;
+    padding-bottom: 0;
+}
+
+.branding-paragraph {
+    padding: 5%;
+    font-family: oswald;
+    font-weight: 500;
+}
+
+.branding-btn {
+    padding: 5%;
+    font-family: oswald;
+    font-weight: 500;
+    margin-left: 5%;
+
+}
+
+.footer {
+    background-color: #2d3343;
+}
+
+.footer-text {
+    color: #a8a8a6
+}
+
+.dark-card {
+    background-color: #19202b;
+    color: white;
 }
