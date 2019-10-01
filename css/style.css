@@ -3,11 +3,11 @@
  * -------
  * rosado: #d827e7
  * celeste: #00d1ed
- * background (grey): #424558
+ * background (grey): #3e4356
  */
 
 body {
-    background-color: #424558 !important;
+    background-color: #3e4356 !important;
 }
 
 .nopadding {
@@ -19,7 +19,7 @@ body {
 }
 
 .customnav {
-    background-color: #424558 !important;
+    background-color: #3e4356 !important;
 }
 
 .navbar-light .navbar-nav .nav-link {
@@ -53,7 +53,7 @@ body {
     font-size: 40px;
     font-family: oswald;
     font-weight: 600;
-    padding-top: 20%;
+    padding-top: 1.5em;
     padding-bottom: 0;
 }
 
@@ -76,7 +76,12 @@ body {
 }
 
 .footer-text {
-    color: #a8a8a6
+    color: #a8a8a6;
+    padding-top: 1em;
+}
+
+.img-landing {
+    padding-top: 2em;
 }
 
 .dark-card {
