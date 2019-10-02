@@ -7,84 +7,91 @@
  */
 
 body {
-    background-color: #3e4356 !important;
+  background-color: #3e4356 !important;
 }
 
 .nopadding {
-    padding: 0;
+  padding: 0;
 }
 
 .custom_bottom {
-    padding-bottom: 100px;
+  padding-bottom: 100px;
 }
 
 .customnav {
-    background-color: #3e4356 !important;
+  background-color: #3e4356 !important;
 }
 
 .navbar-light .navbar-nav .nav-link {
-    color: #c7c7c7;
+  color: #c7c7c7;
 }
 
-.navbar-light .navbar-nav .active>.nav-link,
+.navbar-light .navbar-nav .active > .nav-link,
 .navbar-light .navbar-nav .nav-link.active,
 .navbar-light .navbar-nav .nav-link.show,
-.navbar-light .navbar-nav .show>.nav-link {
-    color: #4fa9d5;
+.navbar-light .navbar-nav .show > .nav-link {
+  color: #4fa9d5;
 }
 
 .fill-in {
-    object-fit: cover;
+  object-fit: cover;
 }
 
-
 .branding-title {
-    color: #c7c7c7
+  color: #c7c7c7;
 }
 
 .branding-paragraph {
-    color: #a8a8a6
+  color: #a8a8a6;
 }
 
-
-
 .branding-title {
-    padding: 5%;
-    font-size: 40px;
-    font-family: oswald;
-    font-weight: 600;
-    padding-top: 1.5em;
-    padding-bottom: 0;
+  padding: 5%;
+  font-size: 40px;
+  font-family: oswald;
+  font-weight: 600;
+  padding-top: 1.5em;
+  padding-bottom: 0;
 }
 
 .branding-paragraph {
-    padding: 5%;
-    font-family: oswald;
-    font-weight: 500;
+  padding: 5%;
+  font-family: oswald;
+  font-weight: 500;
 }
 
 .branding-btn {
-    padding: 5%;
-    font-family: oswald;
-    font-weight: 500;
-    margin-left: 5%;
-
+  padding: 5%;
+  font-family: oswald;
+  font-weight: 500;
+  margin-left: 5%;
 }
 
 .footer {
-    background-color: #2d3343;
+  background-color: #2d3343;
 }
 
 .footer-text {
-    color: #a8a8a6;
-    padding-top: 1em;
+  color: #a8a8a6;
+  padding-top: 1em;
 }
 
 .img-landing {
-    padding-top: 2em;
+  padding-top: 2em;
 }
 
 .dark-card {
-    background-color: #19202b;
-    color: white;
+  background-color: #19202b;
+  color: white;
+}
+.custom-jumbotron {
+  background-color: #3e4356;
+  border-width: 1px;
+  border-style: solid;
+  border-color: #a8a8a6;
+  color: #a8a8a6;
+}
+
+.white-text {
+  color: white;
 }
