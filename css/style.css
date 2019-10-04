@@ -86,9 +86,9 @@ body {
 }
 .custom-jumbotron {
   background-color: #3e4356;
-  border-width: 1px;
-  border-style: solid;
-  border-color: #a8a8a6;
+  /*border-width: 1px;*/
+  /*border-style: solid;*/
+  /*border-color: #a8a8a6;*/
   color: #a8a8a6;
 }
 
