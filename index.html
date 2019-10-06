@@ -19,14 +19,17 @@
       href="https://fonts.googleapis.com/css?family=Oswald&display=swap"
       rel="stylesheet"
     />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" type="text/css" href="css/style.css" />
-    <title>Chony departament</title>
+    <title>SierraMax - Taller</title>
   </head>
 
   <body>
     <!-- nav -->
     <nav class="navbar navbar-expand-lg navbar-light bg-light customnav">
-      <a class="navbar-brand" href="#">SierraMax</a>
+      <a class="navbar-brand" href="#">
+        <img class="img-fluid img-logo" width="200px" src="img/sierramax_logo2.png">
+      </a>
       <button
         class="navbar-toggler"
         type="button"
@@ -39,11 +42,9 @@
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarText">
-        <ul class="navbar-nav ml-auto">
+        <ul class="navbar-nav">
           <li class="nav-item active">
-            <a class="nav-link" href="#"
-              >Inicio <span class="sr-only">(current)</span></a
-            >
+            <a class="nav-link" href="#">Inicio <span class="sr-only">(current)</span></a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="us.html">Nosotros</a>
@@ -57,10 +58,54 @@
           <li class="nav-item">
             <a class="nav-link" href="#">Novedades</a>
           </li>
+          <li>
+            <a href="#SIGNUP" class="signup-btn">
+              <span>Iniciar Sesión</span>
+            </a>
+          </li>
         </ul>
       </div>
     </nav>
     <!-- END NAV -->
+
+    <!-- Carousel -->
+    <div id="landing-carousel" class="carousel slide" data-ride="carousel">
+        <ul class="carousel-indicators">
+          <li data-target="#landing-carousel" data-slide-to="0" class="active"></li>
+          <li data-target="#landing-carousel" data-slide-to="1"></li>
+          <li data-target="#landing-carousel" data-slide-to="2"></li>
+        </ul>
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <img src="img/slider1.jpg" alt="Los Angeles" width="100%" height="auto">
+            <div class="carousel-caption">
+              <h3>Personal Capaciado</h3>
+              <p>Contamos con personal altamente capacitado</p>
+            </div>   
+          </div>
+          <div class="carousel-item">
+            <img src="img/slider2.jpg" alt="Chicago" width="100%" height="auto">
+            <div class="carousel-caption">
+              <h3>Un Gran Taller</h3>
+              <p>Nuestro taller cuenta con las ultimas tecnologías</p>
+            </div>   
+          </div>
+          <div class="carousel-item">
+            <img src="img/slider3.jpg" alt="New York" width="100%" height="auto">
+            <div class="carousel-caption">
+              <h3>Chapa y Pintura</h3>
+              <p>Deje esteticamente su auto impecable!</p>
+            </div>   
+          </div>
+        </div>
+        <a class="carousel-control-prev" href="#landing-carousel" data-slide="prev">
+          <span class="carousel-control-prev-icon"></span>
+        </a>
+        <a class="carousel-control-next" href="#landing-carousel" data-slide="next">
+          <span class="carousel-control-next-icon"></span>
+        </a>
+      </div>      
+    <!-- END Carousel -->
 
     <div class="container">
       <div class="row custom_bottom">
@@ -72,9 +117,12 @@
             enim! Deserunt laudantium architecto cum illum voluptatum? Assumenda
             provident aut rem delectus iure
           </p>
-          <button type="button" class="btn btn-light branding-btn">
-            Learn more
-          </button>
+          <a href="#LEARN_MORE" class="fancy-btn">
+            <div class="fancy-btn-inner">
+                <i class="fa fa-play"></i>
+            </div>
+            <small><b>LEARN MORE</b></small>
+          </a>
         </div>
         <div class="col-sm-6 nopadding">
           <img src="img/car_landing.jpg" class="img-landing" width="100%" />
