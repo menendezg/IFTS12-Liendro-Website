@@ -62,11 +62,13 @@ body {
 }
 
 .nav-link {
-  padding: 24px 32px!important;
+  padding: 24px 28px!important;
 }
 
 .navbar-dark .navbar-nav .nav-link {
   color: #b2b1b1;
+  font-weight: bold;
+  transform: scale(1, 1.2);
 }
 
 .navbar-dark .navbar-nav .active > .nav-link,
@@ -175,6 +177,10 @@ small {
   padding: 18px 0;
   font-size: 13px;
   cursor: pointer;
+}
+
+.row .col-sm-4 {
+  display: flex; /* equal heigh */
 }
 
 .card {
