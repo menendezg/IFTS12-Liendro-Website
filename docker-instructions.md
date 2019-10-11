@@ -11,7 +11,7 @@ This is a basic LAMP stack environment built using Docker Compose. It consists f
 
 ## Configuration and Usage
 
-Inside of docker configuration docker-environment run:
+Inside of docker configuration docker-lamp-environment run:
 ``
 sudo docker-compose up
 ``
