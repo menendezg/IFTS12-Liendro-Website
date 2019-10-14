@@ -51,7 +51,7 @@ $current_file_name = basename($_SERVER['PHP_SELF']);
                <?
                 }    
                 endforeach; ?>
-            <a href="#SIGNUP" class="signup-btn">
+            <a href="login.php" class="signup-btn">
               <span>Iniciar Sesión</span>
             </a>
           </li>

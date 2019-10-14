@@ -595,3 +595,8 @@ small {
   width: 100vw;
   height: 400px;
 }
+
+
+.login-form{
+    padding: 15%;
+}
