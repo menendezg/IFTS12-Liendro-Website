@@ -1,12 +1,18 @@
 <?php
   $TITLE = "SIERRMAX";
   require_once("utils/session.php");
+  $session = new session();
+  
+  // if(isset($_POST["iniciar"])) {		
+  // sory esta linea no se entiende. 
+  // No veo un parametro en el post que digga iniciar. 
 
-	$session = new session();
-	
-	if(isset($_POST["iniciar"])) {		
-	  $username = $_POST["username"];
-	  $password = $_POST["password"];
+  // cualquiercosa despues las volvemos a poner
+  // puedo manejar el flujo de otra manera
+  
+  if(isset($_POST["username"])){  
+    $username = $_POST["username"];
+	$password = $_POST["password"];
 		
 	  if(validateUser($username, $password) == true) {			
 			$session->set("username",$username);
@@ -19,10 +25,13 @@
 	function validateUser($username, $password) {
 		$db = new SQLite3("db/taller-sierra.db");
 		$sql = "SELECT password FROM users WHERE username = '$username';";
-
 		$result = $db->query($sql);
-
-		if($result->numRows() > 0) {
+        // var_dump($sql); 
+        // commented atm. Some information in internet said last sqlite version
+        // dosnt support this. But i cant sure of that. 
+        // with this is running
+        //if($result->numRows() > 0) {
+        if(count($result) >0 ) {
 			$row = $result->fetchArray();
 			if(strcmp($password,$row[0]) == 0) {
 			  return true;
