@@ -1,4 +1,9 @@
 <?php
+session_start();
+if(isset($_SESSION['username']))
+    {
+        $name = $_SESSION['username'];
+    }
 $links = [
     "index.php" => "INICIO",
     "us.php" => "Nosotros",
@@ -50,11 +55,24 @@ $current_file_name = basename($_SERVER['PHP_SELF']);
  
                <?
                 }    
-                endforeach; ?>
-            <a href="login.php" class="signup-btn">
+            endforeach; 
+        if(isset($_SESSION['username'])) {
+        ?>    
+        <a href="login.php?logout" class="signup-btn">
+              <span>Cerrar Sesión</span>
+        </a>
+        <?
+        }
+        else {
+        ?>
+        <a href="login.php" class="signup-btn">
               <span>Iniciar Sesión</span>
             </a>
-          </li>
+        <?
+        }
+        ?>
+            
+         </li>
         </ul>
       </div>
     </nav>

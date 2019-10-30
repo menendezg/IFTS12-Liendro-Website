@@ -6,15 +6,16 @@
  * background (grey): #3e4356
  */
 .primary-text-color {
-  color: #b2b1b1!important;
+  color: #b2b1b1 !important;
 }
 
-@media only screen and (max-width: 767px) { /* Mobile Mode */
+@media only screen and (max-width: 767px) {
+  /* Mobile Mode */
   .signup-btn {
-    display: inline-block!important;
-    margin-top: 2em!important;
-    margin-bottom: 1em!important;
-    margin-left: 45vw!important;
+    display: inline-block !important;
+    margin-top: 2em !important;
+    margin-bottom: 1em !important;
+    margin-left: 45vw !important;
   }
 
   .card {
@@ -22,7 +23,8 @@
   }
 }
 
-@media screen and (min-width: 768px) { /* Desktop Mode */
+@media screen and (min-width: 768px) {
+  /* Desktop Mode */
   .signup-btn {
     position: absolute;
   }
@@ -49,9 +51,9 @@ body {
 
 .customnav {
   background-color: #3e4356 !important;
-  -webkit-box-shadow: inset 0 20px 20px -20px rgba(0,0,0,0.8);
-  -moz-box-shadow: inset 0 20px 20px -20px rgba(0,0,0,0.8);
-  box-shadow: inset 0 20px 20px -20px rgba(0,0,0,0.8);
+  -webkit-box-shadow: inset 0 20px 20px -20px rgba(0, 0, 0, 0.8);
+  -moz-box-shadow: inset 0 20px 20px -20px rgba(0, 0, 0, 0.8);
+  box-shadow: inset 0 20px 20px -20px rgba(0, 0, 0, 0.8);
 }
 
 .img-logo {
@@ -62,7 +64,7 @@ body {
 }
 
 .nav-link {
-  padding: 24px 28px!important;
+  padding: 24px 28px !important;
 }
 
 .navbar-dark .navbar-nav .nav-link {
@@ -75,34 +77,53 @@ body {
 .navbar-dark .navbar-nav .nav-link.active,
 .navbar-dark .navbar-nav .nav-link.show,
 .navbar-dark .navbar-nav .show > .nav-link {
-  color: #19dafa!important;
+  color: #19dafa !important;
 }
 
 .navbar-dark .navbar-nav .nav-link:hover {
-  background: rgba(43,48,64,1);
-  background: -moz-linear-gradient(top, rgba(43,48,64,1) 0%, rgba(31,34,46,1) 100%);
-  background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(43,48,64,1)), color-stop(100%, rgba(31,34,46,1)));
-  background: -webkit-linear-gradient(top, rgba(43,48,64,1) 0%, rgba(31,34,46,1) 100%);
-  background: -o-linear-gradient(top, rgba(43,48,64,1) 0%, rgba(31,34,46,1) 100%);
-  background: -ms-linear-gradient(top, rgba(43,48,64,1) 0%, rgba(31,34,46,1) 100%);
-  background: linear-gradient(to bottom, rgba(43,48,64,1) 0%, rgba(31,34,46,1) 100%);
+  background: rgba(43, 48, 64, 1);
+  background: -moz-linear-gradient(
+    top,
+    rgba(43, 48, 64, 1) 0%,
+    rgba(31, 34, 46, 1) 100%
+  );
+  background: -webkit-gradient(
+    left top,
+    left bottom,
+    color-stop(0%, rgba(43, 48, 64, 1)),
+    color-stop(100%, rgba(31, 34, 46, 1))
+  );
+  background: -webkit-linear-gradient(
+    top,
+    rgba(43, 48, 64, 1) 0%,
+    rgba(31, 34, 46, 1) 100%
+  );
+  background: -o-linear-gradient(
+    top,
+    rgba(43, 48, 64, 1) 0%,
+    rgba(31, 34, 46, 1) 100%
+  );
+  background: -ms-linear-gradient(
+    top,
+    rgba(43, 48, 64, 1) 0%,
+    rgba(31, 34, 46, 1) 100%
+  );
+  background: linear-gradient(
+    to bottom,
+    rgba(43, 48, 64, 1) 0%,
+    rgba(31, 34, 46, 1) 100%
+  );
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#2b3040', endColorstr='#1f222e', GradientType=0 );
   border-radius: 6px;
-  -webkit-box-shadow: inset 0px 0px 6px 0px rgba(0,0,0,0.75);
-  -moz-box-shadow: inset 0px 0px 6px 0px rgba(0,0,0,0.75);
-  box-shadow: inset 0px 0px 6px 0px rgba(0,0,0,0.75);
+  -webkit-box-shadow: inset 0px 0px 6px 0px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: inset 0px 0px 6px 0px rgba(0, 0, 0, 0.75);
+  box-shadow: inset 0px 0px 6px 0px rgba(0, 0, 0, 0.75);
   color: #b2b1b1;
 }
 
 .carousel-caption {
-  text-shadow: 2px 0 0 #000, 
-              -2px 0 0 #000, 
-               0 2px 0 #000, 
-              0 -2px 0 #000, 
-               1px 1px #000, 
-           -1px -1px 0 #000, 
-            1px -1px 0 #000,
-            -1px 1px 0 #000;
+  text-shadow: 2px 0 0 #000, -2px 0 0 #000, 0 2px 0 #000, 0 -2px 0 #000,
+    1px 1px #000, -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000;
 }
 
 .signup-btn {
@@ -112,8 +133,8 @@ body {
   margin-top: 16px;
   border: 2px solid transparent;
   border-radius: 20px;
-  background-image: linear-gradient(#3e4356, #3e4356), 
-                    radial-gradient(circle at top left, #fd00da, #19d7f8);
+  background-image: linear-gradient(#3e4356, #3e4356),
+    radial-gradient(circle at top left, #fd00da, #19d7f8);
   background-origin: border-box;
   background-clip: content-box, border-box;
 }
@@ -126,10 +147,9 @@ body {
 .signup-btn:hover {
   cursor: pointer;
   text-decoration: none;
-  background-image: linear-gradient(#323645, #323645), 
-                    radial-gradient(circle at top left, #19d7f8, #fd00da);
+  background-image: linear-gradient(#323645, #323645),
+    radial-gradient(circle at top left, #19d7f8, #fd00da);
   color: #b2b1b1;
-
 }
 
 .fancy-btn {
@@ -140,12 +160,12 @@ body {
 
 .fancy-btn:hover {
   text-decoration: none;
-  color: #b2b1b1
+  color: #b2b1b1;
 }
 
 .fancy-btn:hover .fancy-btn-inner {
-  background-image: linear-gradient(#323645, #323645), 
-                    radial-gradient(circle at top left, #19d7f8, #fd00da);
+  background-image: linear-gradient(#323645, #323645),
+    radial-gradient(circle at top left, #19d7f8, #fd00da);
 }
 
 .fancy-btn:hover small {
@@ -157,8 +177,8 @@ body {
   width: 50px;
   border: 2px solid transparent;
   border-radius: 50%;
-  background-image: linear-gradient(#3e4356, #3e4356), 
-                    radial-gradient(circle at top left, #fd00da, #19d7f8);
+  background-image: linear-gradient(#3e4356, #3e4356),
+    radial-gradient(circle at top left, #fd00da, #19d7f8);
   background-origin: border-box;
   background-clip: content-box, border-box;
   text-align: center;
@@ -186,13 +206,13 @@ small {
 .card {
   border: 2px solid transparent;
   border-radius: 12px;
-  background-image: linear-gradient(#fff, #fff), 
-                    radial-gradient(circle at top left, #fd00da, #19d7f8);
+  background-image: linear-gradient(#fff, #fff),
+    radial-gradient(circle at top left, #fd00da, #19d7f8);
   background-origin: border-box;
   background-clip: content-box, border-box;
-  -webkit-box-shadow: 0px 4px 6px 0px rgba(0,0,0,0.75);
-  -moz-box-shadow: 0px 4px 6px 0px rgba(0,0,0,0.75);
-  box-shadow: 0px 4px 6px 0px rgba(0,0,0,0.75);
+  -webkit-box-shadow: 0px 4px 6px 0px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 0px 4px 6px 0px rgba(0, 0, 0, 0.75);
+  box-shadow: 0px 4px 6px 0px rgba(0, 0, 0, 0.75);
 }
 
 .card-body {
@@ -242,16 +262,47 @@ small {
 }
 
 .jumbotron-services {
-  background: rgba(215,39,231,1);
-  background: -moz-linear-gradient(-45deg, rgba(215,39,231,1) 0%, rgba(215,39,231,1) 29%, rgba(0,209,237,1) 100%);
-  background: -webkit-gradient(left top, right bottom, color-stop(0%, rgba(215,39,231,1)), color-stop(29%, rgba(215,39,231,1)), color-stop(100%, rgba(0,209,237,1)));
-  background: -webkit-linear-gradient(-45deg, rgba(215,39,231,1) 0%, rgba(215,39,231,1) 29%, rgba(0,209,237,1) 100%);
-  background: -o-linear-gradient(-45deg, rgba(215,39,231,1) 0%, rgba(215,39,231,1) 29%, rgba(0,209,237,1) 100%);
-  background: -ms-linear-gradient(-45deg, rgba(215,39,231,1) 0%, rgba(215,39,231,1) 29%, rgba(0,209,237,1) 100%);
-  background: linear-gradient(135deg, rgba(215,39,231,1) 0%, rgba(215,39,231,1) 29%, rgba(0,209,237,1) 100%);
+  background: rgba(215, 39, 231, 1);
+  background: -moz-linear-gradient(
+    -45deg,
+    rgba(215, 39, 231, 1) 0%,
+    rgba(215, 39, 231, 1) 29%,
+    rgba(0, 209, 237, 1) 100%
+  );
+  background: -webkit-gradient(
+    left top,
+    right bottom,
+    color-stop(0%, rgba(215, 39, 231, 1)),
+    color-stop(29%, rgba(215, 39, 231, 1)),
+    color-stop(100%, rgba(0, 209, 237, 1))
+  );
+  background: -webkit-linear-gradient(
+    -45deg,
+    rgba(215, 39, 231, 1) 0%,
+    rgba(215, 39, 231, 1) 29%,
+    rgba(0, 209, 237, 1) 100%
+  );
+  background: -o-linear-gradient(
+    -45deg,
+    rgba(215, 39, 231, 1) 0%,
+    rgba(215, 39, 231, 1) 29%,
+    rgba(0, 209, 237, 1) 100%
+  );
+  background: -ms-linear-gradient(
+    -45deg,
+    rgba(215, 39, 231, 1) 0%,
+    rgba(215, 39, 231, 1) 29%,
+    rgba(0, 209, 237, 1) 100%
+  );
+  background: linear-gradient(
+    135deg,
+    rgba(215, 39, 231, 1) 0%,
+    rgba(215, 39, 231, 1) 29%,
+    rgba(0, 209, 237, 1) 100%
+  );
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#d727e7', endColorstr='#00d1ed', GradientType=1 );
-  padding: 2em 2em!important;
-  border-radius: 0px!important;
+  padding: 2em 2em !important;
+  border-radius: 0px !important;
 }
 
 .jumbotron-services h1 {
@@ -295,7 +346,7 @@ small {
   letter-spacing: 0px;
   line-height: 27px;
   margin: 0 0 12px;
-  text-align: left!important;
+  text-align: left !important;
 }
 
 .service-area p {
@@ -335,7 +386,7 @@ small {
   overflow: hidden;
   padding: 0;
   width: 100%;
-  background:rgba(0, 0, 0, 0) url('../img/person-says.png') no-repeat;
+  background: rgba(0, 0, 0, 0) url("../img/person-says.png") no-repeat;
   background-blend-mode: soft-light;
   background-position: center;
   background-size: cover;
@@ -454,7 +505,7 @@ small {
 .testi-pager {
   bottom: 0px;
   padding-top: 40px;
-  margin-bottom: -30px!important;
+  margin-bottom: -30px !important;
 }
 
 .testi-pager .carousel-indicators {
@@ -533,18 +584,18 @@ small {
 .footer {
   background-color: #2d3343;
   border-top: 2px solid #fd00da;
-  padding-left: 0px!important;
-  padding-right: 0px!important;
+  padding-left: 0px !important;
+  padding-right: 0px !important;
 }
 
 .footer:first-child:before {
-  content:'';
-  position:absolute;
-  width:100%;
-  height:2px;
-  background:linear-gradient(to left, #19d7f8, #fd00da);
-  top:-2px;
-  left:0;
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(to left, #19d7f8, #fd00da);
+  top: -2px;
+  left: 0;
 }
 
 .footer-text {
@@ -554,7 +605,7 @@ small {
 }
 
 .footer-text a {
-  color: #19d7f8!important;
+  color: #19d7f8 !important;
 }
 
 .footer-text a:hover {
@@ -585,8 +636,8 @@ small {
 
 .border-fancy {
   border: 2px solid transparent;
-  background-image: linear-gradient(#323645, #323645), 
-                    radial-gradient(circle at top left, #fd00da, #19d7f8);
+  background-image: linear-gradient(#323645, #323645),
+    radial-gradient(circle at top left, #fd00da, #19d7f8);
   background-origin: border-box;
   background-clip: content-box, border-box;
 }
@@ -596,8 +647,12 @@ small {
   height: 400px;
 }
 
+.login-form {
+  padding-top: 0px;
+  padding-bottom: 15%;
+}
 
-.login-form{
-    padding-top: 0px;
-    padding-bottom: 15%;
+.wrong-credentials {
+  color: white;
+  background-color: red;
 }

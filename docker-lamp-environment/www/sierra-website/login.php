@@ -2,46 +2,51 @@
   $TITLE = "SIERRMAX";
   require_once("utils/session.php");
   $session = new session();
+if (isset($_GET['logout'])) {
+    $session->end_session();
+    header("location: logout.php");
+}
   
-  // if(isset($_POST["iniciar"])) {		
-  // sory esta linea no se entiende. 
-  // No veo un parametro en el post que digga iniciar. 
+  // if(isset($_POST["iniciar"])) {
+  // sory esta linea no se entiende.
+  // No veo un parametro en el post que digga iniciar.
 
   // cualquiercosa despues las volvemos a poner
   // puedo manejar el flujo de otra manera
   
-  if(isset($_POST["username"])){  
+if (isset($_POST["username"])) {
     $username = $_POST["username"];
-	$password = $_POST["password"];
-		
-	  if(validateUser($username, $password) == true) {			
-			$session->set("username",$username);
-			header("location: index.php");
-		} else {
-			echo "Credenciales incorrectas!";
-		}
-	}
-	
-	function validateUser($username, $password) {
-		$db = new SQLite3("db/taller-sierra.db");
-		$sql = "SELECT password FROM users WHERE username = '$username';";
-		$result = $db->query($sql);
-        // var_dump($sql); 
-        // commented atm. Some information in internet said last sqlite version
-        // dosnt support this. But i cant sure of that. 
-        // with this is running
-        //if($result->numRows() > 0) {
-        if(count($result) >0 ) {
-			$row = $result->fetchArray();
-			if(strcmp($password,$row[0]) == 0) {
-			  return true;
-      } else {
-        return false;
-      }
-		} else {
-      return false;
+    $password = $_POST["password"];
+        
+    if (validateUser($username, $password) == true) {
+        $session->set("username", $username);
+          header("location: index.php");
+    } else {
+        $error_message='CREDENCIALES INCORRECTAS';
     }
-	}
+}
+    
+function validateUser($username, $password)
+{
+    $db = new SQLite3("db/taller-sierra.db");
+    $sql = "SELECT password FROM users WHERE username = '$username';";
+    $result = $db->query($sql);
+    // var_dump($sql);
+    // commented atm. Some information in internet said last sqlite version
+    // dosnt support this. But i cant sure of that.
+    // with this is running
+    //if($result->numRows() > 0) {
+    if (count($result) >0) {
+        $row = $result->fetchArray();
+        if (strcmp($password, $row[0]) == 0) {
+            return true;
+        } else {
+            return false;
+        }
+    } else {
+        return false;
+    }
+}
 
 ?>
 
@@ -73,7 +78,7 @@
 
   <body>
     <!-- nav -->
-    <?
+    <?php
         require_once 'components/nav.php';
     ?>
     <div class="container">
@@ -95,14 +100,27 @@
                 <input type="checkbox" class="custom-control-input" name="remember" id="rememberCheck">
                 <label class="custom-control-label" for="rememberCheck">Mantenerme conectado?</label>
               </div>
-              <button class="btn btn-primary btn-block text-uppercase" type="submit">Iniciar Sesión</button>
+            <?php
+            if (isset($error_message)) {
+            ?>
+            <h5 class="card-title text-center wrong-credentials">
+                <?php echo($error_message) ?>
+            </h5>
+            <?php
+            } else {
+                //nothing we are fine
+            ?>    
+            <?php
+            }
+            ?>  
+            <button class="btn btn-primary btn-block text-uppercase" type="submit">Iniciar Sesión</button>
             </form>
           </div>
         </div>
       </div>
     </div>
     </div>
-<?
+<?php
     require_once 'components/footer.php'
 ?>
  

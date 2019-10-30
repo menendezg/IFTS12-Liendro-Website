@@ -1,7 +1,8 @@
 <?php
+    session_start();
     $TITLE = "SIERRMAX";
     include('utils/utils.php');
-
+       
 ?>
 
 <!DOCTYPE html>
@@ -36,6 +37,7 @@
         require_once 'components/nav.php';
         require_once 'components/carousel.php';
     ?>
+
     <div class="container">
       <div class="row custom_bottom">
         <div class="col-sm-6">
