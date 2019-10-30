@@ -10,6 +10,7 @@ CREATE TABLE persons (
 
 CREATE TABLE users (
     user_id INTEGER PRIMARY KEY,
+    username TEXT NOT NULL,
     password TEXT NOT NULL,
     is_administrator INTEGER NOT NULL,
     person_id INTEGER,

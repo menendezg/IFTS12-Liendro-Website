@@ -11,7 +11,7 @@ $current_file_name = basename($_SERVER['PHP_SELF']);
 
 ?>
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark customnav">
-      <a class="navbar-brand" href="#">
+      <a class="navbar-brand" href="index.php">
         <img class="img-fluid img-logo" width="200px" src="img/sierramax_logo2.png">
       </a>
       <button

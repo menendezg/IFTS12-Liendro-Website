@@ -32,11 +32,10 @@
 
   <body>
     <!-- nav -->
-<?
-    require_once 'components/nav.php';
-    require_once 'components/carousel.php';
-
-?>
+    <?
+        require_once 'components/nav.php';
+        require_once 'components/carousel.php';
+    ?>
     <div class="container">
       <div class="row custom_bottom">
         <div class="col-sm-6">
