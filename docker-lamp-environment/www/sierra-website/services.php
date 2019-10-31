@@ -1,3 +1,9 @@
+<?php
+    // session
+    // Always in the init of php file when I want variables of session
+    require_once("utils/session.php");
+    $session = new session();
+?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -25,7 +31,7 @@
   </head>
 
   <body>
-<?
+<?php
     require_once 'components/nav.php';
 ?>
 
@@ -154,10 +160,10 @@
     </div>
 
     <!-- Testimonial Section -->
-		<div class="testimonial-section">
+        <div class="testimonial-section">
       <div class="overlay" style="background: none repeat scroll 0 0 rgba(0, 0, 0, 0.2);">
       <div class="container">
-        <!-- Section Title -->		
+        <!-- Section Title -->      
         <div class="row">
           <div class="col-md-12">
             <div class="section-heading-title">
@@ -179,8 +185,8 @@
                   <div class="author-description">Excelente atención, grandes profesionales.</div>
                   <h4><span></span>Martín Deferrari</h4>
                 </div>
-              </div>	
-            </div>	
+              </div>    
+            </div>  
             
             <div class="carousel-item pull-left item">
               <div class="media testmonial-area">
@@ -188,8 +194,8 @@
                   <div class="author-description">Agilidad en los trabajos y seriedad !! Recomendable</div>
                   <h4><span></span>Marcos Russo<h4>
                 </div>
-              </div>	
-            </div>	
+              </div>    
+            </div>  
 
             <div class="carousel-item pull-left item">
               <div class="media testmonial-area">
@@ -197,8 +203,8 @@
                   <div class="author-description">Excelente como dejaron el auto. Seriedad y mucha responsabilidad. Trabajan muy bien</div>
                   <h4><span></span>Susana Rosas<h4>
                 </div>
-              </div>	
-            </div>	
+              </div>    
+            </div>  
 
             <div class="carousel-item pull-left item">
               <div class="media testmonial-area">
@@ -206,7 +212,7 @@
                   <div class="author-description">Excelente atención, grandes profesionales. Trabajan muy bien, súper prolijos, nada de verso. Más que recomendado.</div>
                   <h4><span></span>Juan Pablo Espindola<h4>
                 </div>
-              </div>	
+              </div>    
             </div>    
           </div>
 
@@ -220,10 +226,10 @@
               </ol>
             </div>
         </div>
-        <!-- /Testimonial -->	
+        <!-- /Testimonial -->   
         
-      </div>	
-    </div>	
+      </div>    
+    </div>  
   </div>
   <!-- /Testimonial Section -->
 

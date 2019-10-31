@@ -1,17 +1,33 @@
 <?php
-session_start();
-if(isset($_SESSION['username']))
+// session
+// Always in the init of php file when I want variables of session
+require_once("utils/session.php");
+$session = new session();
+if($session->get('username'))
     {
         $name = $_SESSION['username'];
-    }
+}
+
 $links = [
     "index.php" => "INICIO",
     "us.php" => "Nosotros",
     "services.php" => "Servicios",
     "contact.php" => "Contacto",
-    "news.php" => "Novedades",
 ];
 
+
+// Explanation of this line 
+// 
+// this line do the following. 
+// Basename is function to get the name with the url 
+// relative to the project. 
+// that means withot www and running ok. 
+// with this line we get the name of te php file of we are. 
+// Why we are doing this?
+// With this, the nav, can hightlight when you are in the page dinamically 
+// this mean, if you click " nosotros " the for each,  will check in the parameters
+// if the url is the same and colorize dinamically
+//
 $current_file_name = basename($_SERVER['PHP_SELF']);
 
 ?>
@@ -55,14 +71,27 @@ $current_file_name = basename($_SERVER['PHP_SELF']);
  
                <?
                 }    
-            endforeach; 
-        if(isset($_SESSION['username'])) {
+            endforeach;
+        
+
+            // Check the following logic is for show the link to booking
+
+        
+            if($session->get('username')) {
         ?>    
-        <a href="login.php?logout" class="signup-btn">
-              <span>Cerrar Sesión</span>
-        </a>
-        <?
-        }
+                <a href="booking.php" class="nav-link">
+                    <span>Turnos</span>
+                </a>
+        <?php
+            }
+
+            if($session->get('username')) {
+        ?>    
+                <a href="login.php?logout" class="signup-btn">
+                    <span>Cerrar Sesión</span>
+                </a>
+        <?php
+            }
         else {
         ?>
         <a href="login.php" class="signup-btn">

@@ -1,3 +1,9 @@
+<?php
+    // session
+    // Always in the init of php file when I want variables of session
+    require_once("utils/session.php");
+    $session = new session();
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -18,7 +24,7 @@
 
 <body>
 
-<?
+<?php
     require_once 'components/nav.php';
 ?>
 
@@ -93,7 +99,7 @@
             ¿Dónde estamos?
         </h3>
       </div>
-      <div class="google-map">	
+      <div class="google-map">  
           <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3282.3254378787597!2d-58.45054178545383!3d-34.646483280448344!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95bccbcf82ceea77%3A0x71ec3f853723e71b!2sPedernera%202790%2C%20C1406EFJ%20CABA!5e0!3m2!1ses-419!2sar!4v1570559186907!5m2!1ses-419!2sar"
                   frameborder="0"
                   style="border:0;"
@@ -105,7 +111,7 @@
     <script src="js/map.js"></script>
   <!--Google Map-->
 
-<?
+<?php
     require_once 'components/footer.php'
 ?>  
 </body>

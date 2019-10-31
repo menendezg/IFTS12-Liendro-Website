@@ -1,3 +1,29 @@
+<?php
+// session
+// Always in the init of php file when I want variables of session
+require_once("utils/session.php");
+$session = new session();
+
+// the followins line redirect to the first slide if
+// the user not logged in and he is trying to enter
+// by cache or writing in the browser the url.
+
+
+
+
+//===========================================================================
+// remember: like php is not strict the follwing line maybe not return true 
+// but is evaluated at same way. 
+// 
+// this means if get->(username) return something i dot do anything. 
+// but if return false, I will redirect to login.
+    
+    
+if (!$session->get('username')) {
+    header('Location: login.php');
+}
+
+?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -24,7 +50,7 @@
   </head>
 
   <body>
- <?
+    <?php
     require_once 'components/nav.php';
 ?>
    
@@ -33,10 +59,11 @@
       <div class="row">
         <div class="col-sm-12">
           <div class="jumbotron custom-jumbotron">
-            <h1 class="display-4 primary-title subpage-title" style="text-align: left!important;">Novedades</h1>
+            <h1 class="display-4 primary-title subpage-title" style="text-align: left!important;">
+                Turnos
+            </h1>
             <p class="lead">
-                Conocé las novedades de los Fondos de financiamiento respecto de la apertura, 
-                proceso de evaluación, adjudicación y prórroga de convocatorias para proyectos.
+                Bienvenido a tu panel de administracion para turnos
             </p>
           </div>
         </div>

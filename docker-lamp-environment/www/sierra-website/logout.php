@@ -1,6 +1,12 @@
 <?php
-$TITLE = "SIERRMAX";
-session_start();
+    // session
+    // Always in the init of php file when I want variables of session
+    require_once("utils/session.php");
+    $session = new session();
+    
+    $TITLE = "SIERRMAX";
+    include('utils/utils.php');
+    
 ?>
 
 <!DOCTYPE html>
@@ -31,7 +37,7 @@ session_start();
 
   <body>
     <!-- nav -->
-    <?
+    <?php
         require_once 'components/nav.php';
     ?>
     <div class="container">
@@ -55,7 +61,7 @@ session_start();
     </div>
     </div>
 
-<?
+<?php
     require_once 'components/footer.php'
 ?>
  

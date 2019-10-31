@@ -1,8 +1,12 @@
 <?php
-    session_start();
+    // session
+    // Always in the init of php file when I want variables of session
+    require_once("utils/session.php");
+    $session = new session();
+    
     $TITLE = "SIERRMAX";
     include('utils/utils.php');
-       
+    
 ?>
 
 <!DOCTYPE html>
@@ -28,12 +32,12 @@
     />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="css/style.css" type="text/css" />
-    <title><? echo $TITLE ?></title>
+    <title><?php echo $TITLE ?></title>
   </head>
 
   <body>
     <!-- nav -->
-    <?
+    <?php
         require_once 'components/nav.php';
         require_once 'components/carousel.php';
     ?>
@@ -168,7 +172,7 @@
         </div>
       </div>
    </div>
-<?
+<?php
     require_once 'components/footer.php'
 ?>
  

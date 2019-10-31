@@ -1,3 +1,9 @@
+<?php
+    // session
+    // Always in the init of php file when I want variables of session
+    require_once("utils/session.php");
+    $session = new session();
+?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -24,7 +30,7 @@
   </head>
 
   <body>
-<?
+<?php
     require_once 'components/nav.php';
 ?>
 
