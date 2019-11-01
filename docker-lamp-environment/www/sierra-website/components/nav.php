@@ -58,8 +58,11 @@ $current_file_name = basename($_SERVER['PHP_SELF']);
             endforeach; 
         if(isset($_SESSION['username'])) {
         ?>    
-        <a href="login.php?logout" class="signup-btn">
-              <span>Cerrar Sesión</span>
+        <a href="login.php?logout" class="logout-btn">
+          <span>
+            <i class="fa fa-power-off"></i>
+            Cerrar Sesión
+            </span>
         </a>
         <?
         }

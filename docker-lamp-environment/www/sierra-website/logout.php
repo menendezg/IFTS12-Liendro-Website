@@ -12,7 +12,9 @@ session_start();
       name="viewport"
       content="width=device-width, initial-scale=1, shrink-to-fit=no"
     />
-
+    <!-- favicon -->
+    <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="img/favicon.ico" type="image/x-icon">
     <!-- Bootstrap CSS -->
     <link
       rel="stylesheet"
@@ -49,7 +51,7 @@ session_start();
                      como quedo tu auto y taggeanos. Nos estas ayudando a seguir 
                      brindando la calidad que nos caracteriza. 
                     </p>
-                    <a class="btn btn-primary btn-lg" href="index.php" role="button">Volver al inicio</a>
+                    <a class="btn btn-primary" href="index.php" role="button">Volver al inicio</a>
                 </div>
       </div>
     </div>

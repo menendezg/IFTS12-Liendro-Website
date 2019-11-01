@@ -11,7 +11,7 @@
 
 @media only screen and (max-width: 767px) {
   /* Mobile Mode */
-  .signup-btn {
+  .signup-btn, .logout-btn {
     display: inline-block !important;
     margin-top: 2em !important;
     margin-bottom: 1em !important;
@@ -25,7 +25,7 @@
 
 @media screen and (min-width: 768px) {
   /* Desktop Mode */
-  .signup-btn {
+  .signup-btn, .logout-btn {
     position: absolute;
   }
 }
@@ -71,6 +71,7 @@ body {
   color: #b2b1b1;
   font-weight: bold;
   transform: scale(1, 1.2);
+  text-transform: uppercase;
 }
 
 .navbar-dark .navbar-nav .active > .nav-link,
@@ -126,12 +127,15 @@ body {
     1px 1px #000, -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000;
 }
 
-.signup-btn {
+.signup-btn, .logout-btn {
   right: 80px;
   text-decoration: none;
   color: #ffffff;
   margin-top: 16px;
   border: 2px solid transparent;
+}
+
+.signup-btn {
   border-radius: 20px;
   background-image: linear-gradient(#3e4356, #3e4356),
     radial-gradient(circle at top left, #fd00da, #19d7f8);
@@ -139,16 +143,19 @@ body {
   background-clip: content-box, border-box;
 }
 
-.signup-btn span {
+.signup-btn span, .logout-btn span {
   display: block;
   padding: 8px 22px;
 }
 
 .signup-btn:hover {
+  background-image: linear-gradient(#323645, #323645),
+  radial-gradient(circle at top left, #19d7f8, #fd00da);
+}
+
+.signup-btn:hover, .logout-btn:hover {
   cursor: pointer;
   text-decoration: none;
-  background-image: linear-gradient(#323645, #323645),
-    radial-gradient(circle at top left, #19d7f8, #fd00da);
   color: #b2b1b1;
 }
 
@@ -244,16 +251,30 @@ small {
 }
 
 .subpage-title {
-  font-size: 2.2em;
-  font-weight: bold;
-  text-transform: uppercase;
+  font-size: 2.4em;
+  font-weight: 400;
   text-align: center;
+  line-height: 1.2;
+  margin-bottom: 1em!important;
 }
 
 .subpage-subtitle {
-  font-size: 1.52em;
+  color: #c7c7c7!important;
+  font-weight: 600;
+  font-size: 20px;
+  letter-spacing: 0px;
+  line-height: 27px;
+  margin: 0 0 12px;
+  text-align: left !important;
+}
+
+.subpage-p {
+  color: #b2b1b1!important;
   font-weight: 400;
-  text-transform: uppercase;
+  font-size: 15px;
+  letter-spacing: 0.2px;
+  line-height: 25px;
+  margin: 0;
 }
 
 .paragraph-justify {
