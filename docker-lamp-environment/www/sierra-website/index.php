@@ -51,7 +51,7 @@
             una manera rapida y sencilla. LLevando a recomendarnos de boca en boca
             a otro nivel.
           </p>
-          <a href="#LEARN_MORE" class="fancy-btn">
+          <a href="services.php" class="fancy-btn">
             <div class="fancy-btn-inner">
                 <i class="fa fa-play"></i>
             </div>
