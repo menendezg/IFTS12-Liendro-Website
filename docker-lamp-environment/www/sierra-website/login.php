@@ -2,51 +2,53 @@
   $TITLE = "SIERRMAX";
   require_once("utils/session.php");
   $session = new session();
-if (isset($_GET['logout'])) {
-    $session->end_session();
-    header("location: logout.php");
-}
+  if (isset($_GET['logout'])) {
+      $session->end_session();
+      header("location: logout.php");
+  }
   
-  // if(isset($_POST["iniciar"])) {
-  // sory esta linea no se entiende.
-  // No veo un parametro en el post que digga iniciar.
+  if (isset($_POST["username"])) {
+      $username = $_POST["username"];
+      $password = $_POST["password"];
+          
+      if (validateUser($username, $password) == true) {
+          $session->set("username", $username);
 
-  // cualquiercosa despues las volvemos a poner
-  // puedo manejar el flujo de otra manera
-  
-if (isset($_POST["username"])) {
-    $username = $_POST["username"];
-    $password = $_POST["password"];
-        
-    if (validateUser($username, $password) == true) {
-        $session->set("username", $username);
+          // If remember is checked, save the username and password as cookie.
+          $cookie_time = 60 * 60 * 24 * 30; // 30 days
+          $cookie_time_Onset = $cookie_time + time();
+
+          if (isset($_REQUEST['remember'])) {
+            setcookie("username", $username, $cookie_time_Onset);
+            setcookie("password", $password, $cookie_time_Onset);
+          } else {
+            $cookie_time_fromOffset = time() - $cookie_time;
+            setcookie("username", '', $cookie_time_fromOffset);
+            setcookie("password", '', $cookie_time_fromOffset);
+          }
+
           header("location: index.php");
-    } else {
-        $error_message='CREDENCIALES INCORRECTAS';
-    }
-}
+      } else {
+          $error_message='CREDENCIALES INCORRECTAS';
+      }
+  }
     
-function validateUser($username, $password)
-{
-    $db = new SQLite3("db/taller-sierra.db");
-    $sql = "SELECT password FROM users WHERE username = '$username';";
-    $result = $db->query($sql);
-    // var_dump($sql);
-    // commented atm. Some information in internet said last sqlite version
-    // dosnt support this. But i cant sure of that.
-    // with this is running
-    //if($result->numRows() > 0) {
-    if (count($result) >0) {
-        $row = $result->fetchArray();
-        if (strcmp($password, $row[0]) == 0) {
-            return true;
-        } else {
-            return false;
-        }
-    } else {
-        return false;
-    }
-}
+  function validateUser($username, $password) {
+      $db = new SQLite3("db/taller-sierra.db");
+      $sql = "SELECT password FROM users WHERE username = '$username';";
+      $result = $db->query($sql);
+
+      if (count($result) >0) {
+          $row = $result->fetchArray();
+          if (strcmp($password, $row[0]) == 0) {
+              return true;
+          } else {
+              return false;
+          }
+      } else {
+          return false;
+      }
+  }
 
 ?>
 
@@ -91,16 +93,21 @@ function validateUser($username, $password)
             <h5 class="card-title text-center">Conectarse</h5>
             <form action="<?php echo $_SERVER['PHP_SELF'];?>" method="POST" class="form-signin">
               <div class="form-label-group">
-                <input type="text" name='username' id="inputUsername" class="form-control" placeholder="Usuario" required autofocus>
                 <label for="inputUsername">Nombre de usuario</label>
+                <input type="text" name='username' id="inputUsername" 
+                       class="form-control" placeholder="Usuario" required autofocus
+                       value="<?php if(isset($_COOKIE['username'])) echo $_COOKIE['username']; ?>">
               </div>
               <div class="form-label-group">
-                <input type="password" name='password' id="inputPassword" class="form-control" placeholder="Password" required>
                 <label for="inputPassword">Contraseña</label>
+                <input type="password" name='password' id="inputPassword" 
+                       class="form-control" placeholder="Password" required
+                       value="<?php if(isset($_COOKIE['password'])) echo $_COOKIE['password']; ?>">
               </div>
               <div class="custom-control custom-checkbox mb-3">
-                <input type="checkbox" class="custom-control-input" name="remember" id="rememberCheck">
-                <label class="custom-control-label" for="rememberCheck">Mantenerme conectado?</label>
+                <input type="checkbox" class="custom-control-input" name="remember" id="rememberCheck"
+                       <?php if(isset($_COOKIE['username'])) { echo "checked='checked'"; } ?> value="1">
+                <label class="custom-control-label" for="rememberCheck">Recordar mis credenciales?</label>
               </div>
             <?php
             if (isset($error_message)) {
