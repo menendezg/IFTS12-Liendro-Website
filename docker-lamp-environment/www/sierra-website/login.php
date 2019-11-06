@@ -40,7 +40,12 @@
 
       if (count($result) >0) {
           $row = $result->fetchArray();
-          if (strcmp($password, $row[0]) == 0) {
+          // The password_verify() function takes 2 arguments:
+          // 1st arg: the password in plain text taked from the input form
+          // 2nd arg: tha hash stored in the database
+          // If the password and hash (encripted password) match, return true
+          // else, return false.
+          if (password_verify($password, $row[0])) {
               return true;
           } else {
               return false;
