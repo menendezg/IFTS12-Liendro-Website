@@ -13,7 +13,9 @@
       name="viewport"
       content="width=device-width, initial-scale=1, shrink-to-fit=no"
     />
-
+    <!-- favicon -->
+    <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="img/favicon.ico" type="image/x-icon">
     <!-- Bootstrap CSS -->
     <link
       rel="stylesheet"
@@ -25,6 +27,7 @@
       href="https://fonts.googleapis.com/css?family=Oswald&display=swap"
       rel="stylesheet"
     />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" type="text/css" href="css/style.css" />
     <title>SierraMax</title>
   </head>
@@ -48,11 +51,11 @@
       </div>
 
       <div class="row justify-content-center custom_bottom">
-        <h1 class="display-4 primary-title subpage-title" style="margin-bottom: .3em;">Cuidando Autos Desde Hace 25 Años</h1>
+        <h1 class="display-4 primary-title subpage-title">Cuidando Autos Desde Hace 25 Años</h1>
 
         <div class="col-sm-6">
           <h3 class="primary-title subpage-subtitle">Miles de vehiculos atentidos</h3>
-          <p class="primary-text-color paragraph-justify">
+          <p class="primary-text-color paragraph-justify subpage-p">
               Desde su fundación en el año de 1980, en el barrio de Soldati (Ciudad Autonoma de Buenos Aires)
               nuestro equipo de trabajo se dedica a cuidar su auto como si fuese propio.
           </p>

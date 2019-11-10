@@ -18,7 +18,9 @@
       name="viewport"
       content="width=device-width, initial-scale=1, shrink-to-fit=no"
     />
-
+    <!-- favicon -->
+    <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="img/favicon.ico" type="image/x-icon">
     <!-- Bootstrap CSS -->
     <link
       rel="stylesheet"
@@ -53,7 +55,7 @@
             una manera rapida y sencilla. LLevando a recomendarnos de boca en boca
             a otro nivel.
           </p>
-          <a href="#LEARN_MORE" class="fancy-btn">
+          <a href="services.php" class="fancy-btn">
             <div class="fancy-btn-inner">
                 <i class="fa fa-play"></i>
             </div>

@@ -25,9 +25,21 @@ CREATE TABLE cars (
     brand TEXT,
     model TEXT,
     color TEXT,
+    patent TEXT,
     doors INTEGER,
     status TEXT,
     person_id INTEGER,
+    FOREIGN KEY (person_id)
+        REFERENCES persons(person_id)
+        ON DELETE CASCADE
+        ON UPDATE NO ACTION
+);
+
+CREATE TABLE turns (
+    turn_id INTEGER PRIMARY KEY,
+    person_id INTEGER,
+    date TEXT,
+    status TEXT,
     FOREIGN KEY (person_id)
         REFERENCES persons(person_id)
         ON DELETE CASCADE

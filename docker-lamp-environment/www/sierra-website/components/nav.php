@@ -87,11 +87,14 @@ $current_file_name = basename($_SERVER['PHP_SELF']);
 
             if($session->get('username')) {
         ?>    
-                <a href="login.php?logout" class="signup-btn">
-                    <span>Cerrar Sesión</span>
-                </a>
-        <?php
-            }
+        <a href="login.php?logout" class="logout-btn">
+          <span>
+            <i class="fa fa-power-off"></i>
+            Cerrar Sesión
+            </span>
+        </a>
+        <?
+        }
         else {
         ?>
         <a href="login.php" class="signup-btn">
