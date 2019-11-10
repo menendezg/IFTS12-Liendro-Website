@@ -79,21 +79,25 @@ $current_file_name = basename($_SERVER['PHP_SELF']);
         
             if($session->get('username')) {
         ?>    
-                <a href="booking.php" class="nav-link">
-                    <span>Turnos</span>
-                </a>
-        <?php
+                <li class='nav-item'>
+                    <a href="booking.php" class="nav-link">
+                        <span>Turnos</span>
+                    </a>
+                </li>
+                <?php
             }
 
             if($session->get('username')) {
-        ?>    
-        <a href="login.php?logout" class="logout-btn">
-          <span>
-            <i class="fa fa-power-off"></i>
-            Cerrar Sesión
+        ?>
+        <li class="nav-item">
+            <a href="login.php?logout" class="logout-btn">
+            <span>
+                <i class="fa fa-power-off"></i>
+                Cerrar Sesión
             </span>
-        </a>
-        <?
+            </a>
+        </li>
+                <?
         }
         else {
         ?>
