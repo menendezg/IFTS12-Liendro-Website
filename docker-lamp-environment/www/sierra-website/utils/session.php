@@ -51,4 +51,53 @@ class session
         $_SESSION = array();
         session_destroy();
     }
+
+    public function is_admin($username)
+    {
+        /*
+         * get from database is the user
+         * is admin
+         * return bool*/
+        $db = new SQLite3('db/taller-sierra.db');
+        $sql = "SELECT is_administrator from users WHERE username = '$username';";
+        $result = $db->query($sql);
+        if (count($result)>0) {
+            $row = $result->fetchArray();
+            if (($row['is_administrator'])==1) {
+                return true;
+            } else {
+                return false;
+            }
+        }
+    }
+
+    public function get_person_id($username)
+    {
+        $db = new SQLite3('db/taller-sierra.db');
+        $sql = "SELECT person_id from users WHERE username = '$username';";
+        $result = $db->query($sql);
+        if (count($result)>0) {
+            $row = $result->fetchArray();
+            return $row['person_id'];
+        }
+    }
+
+
+    public function get_turns($username)
+    {
+        /*
+         * get turns of the user
+         *
+         *
+         */
+        $person_id = $this->get_person_id($username);
+        $db = new SQLite3('db/taller-sierra.db');
+        $sql = "SELECT date, status from turns WHERE person_id = '$person_id';";
+        $result = $db->query($sql);
+        if (count($result)>0) {
+            return $result;
+        } else {
+            return false;
+        }
+    }
 }

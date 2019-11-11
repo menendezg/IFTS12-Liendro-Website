@@ -23,6 +23,14 @@ if (!$session->get('username')) {
     header('Location: login.php');
 }
 
+$username = $session->get('username');
+if ($session->is_admin($username)) {
+    // is admin == true , the user
+    // shold redirect to another webpage
+    // to adminstrate the bookings
+    // header('Location: some like adminwebsite.php');
+};
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -66,76 +74,45 @@ if (!$session->get('username')) {
                 Turnos
             </h1>
             <p class="lead">
-                Bienvenido a tu panel de administracion para turnos
+            Bienvenido <?php echo $username; ?>, este tu panel de turnos de turnos
             </p>
           </div>
         </div>
       </div>
 
       <div class="row justify-content-center custom_bottom">
-        <div class="col-sm-4">
-          <div class="card">
-            <img
-              src="img/news1.png"
-              class="card-img-top fill-in"
-              alt="..."
-              height="200"
-            />
-            <div class="card-body dark-card">
-              <h5 class="card-title">Capacitación en Miami | Car-O-Liner</h5>
-              <p class="card-text">
-                  Compartimos la entrevista que hizo la gente de Body & Paint Shop del canal “El Garage TV”.
-                  En Miami, se trata de participar del curso de Car-O-Liner. La capacitación es muy interesante.
-                  Se enfocó especialmente en el desarrollo tecnológico de las bancadas de reparación Car-O-Liner
-                  para asegurar una reparación segura y de alta calidad para los vehículos de nuestros clientes.
-              </p>
-              <a href="https://www.youtube.com/watch?v=ZNfu_YjepwI&feature=youtu.be" class="btn btn-primary" target="_blank">Ver más</a>
-            </div>
-          </div>
-        </div>
-        <div class="col-sm-4">
-          <div class="card">
-            <img
-              src="img/news2.jpg"
-              class="card-img-top fill-in"
-              alt="..."
-              height="200"
-            />
-            <div class="card-body dark-card">
-              <h5 class="card-title">Salón Internacional del Automóvil Buenos Aires 2019</h5>
-              <p class="card-text">
-                  Estará disponible para su visita desde el 10 al 20 de Junio en La Rural.
-                  Estarán todas las marca expositoras de Adefa (asociación de fabricantes de autos),
-                  incluso las que se ausentaron en la última edición (Citroën y DS).
-                  El horario de visita es de 12:00 a 22:00 Hs. Los menores de 7 años ingresan gratis
-                  acreditando edad con su DNI vigente y acompañados por un mayor. 
-                  Es una buena oportunidad que ofrece La Rural para conocer acerca de las novedades de los automóviles,
-                  sus actualizaciones y nuevos diseños.
-              </p>
-              <a href="https://www.youtube.com/watch?v=n8izPaLwkws" class="btn btn-primary" target="_blank">Ver más</a>
-            </div>
-          </div>
-        </div>
-        <div class="col-sm-4">
-          <div class="card">
-            <img
-              src="img/news3.png"
-              class="card-img-top fill-in"
-              alt="..."
-              height="200"
-            />
-            <div class="card-body dark-card">
-              <h5 class="card-title">Talleres en el exterior</h5>
-              <p class="card-text">
-                  En Estados Unidos se visitaron varios talleres de chapa y pintura. 
-                  Pudimos intercambiar experiencia y conocimientos con colegas del exterior.
-                  Entre los prestigiosos talleres visitados, se pueden nombrar a La Mettry´s Collision en Minnesota.
-                  Como resultado de esta visita, se obtuvo un afianzamiento en los lazos de amistad y
-                  buenas relaciones con los colegas del exterior.
-                </p>
-              <a href="#" class="btn btn-primary">Ver más</a>
-            </div>
-          </div>
+        <div class="col-sm-8">
+        <ul class="list-group">
+        <?php
+        //TODO:
+        // Style the following lists
+
+        $turns=$session->get_turns($username);
+        $row=$turns->fetchArray();
+        // note: we are doing this ugly way because turns always return with 1 element
+        // i dont know why. This means: If you have 1 turn, return 1 element but
+        // if you dont have turns return 1 too.
+        // to better understand  check session->get_turns.
+        
+        // so we doing this. because fetch array return false if he can't do his magic.
+        // fetch array make an associative array.
+        // an that runs ok. So if row is false. we handle the message with no schedule.
+        // but if row is ok we handle the turns in diferents elements.
+        //
+
+        if ($row) {
+            while ($row = $turns->fetchArray()) {
+                echo "<li class='list-group-item text-center'> Fecha: {$row{'date'}} Status: {$row{'status'}}</li>";
+            }
+        } else {
+            echo "<li class='list-group-item text center'> No tienes turnos agendados </li>";
+        }
+        
+         
+    
+        
+        ?>
+        </ul>
         </div>
       </div>
 
