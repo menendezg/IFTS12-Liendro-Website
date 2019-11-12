@@ -90,12 +90,22 @@ $current_file_name = basename($_SERVER['PHP_SELF']);
             if($session->get('username')) {
         ?>
         <li class="nav-item">
-            <a href="login.php?logout" class="logout-btn">
-            <span>
-                <i class="fa fa-power-off"></i>
-                Cerrar Sesión
-            </span>
-            </a>
+            <div class="dropdown dropdown-user">
+                <a class="dropdown-toggle" data-toggle="dropdown">
+                    <i class="fa fa-user fa-ma-fix"></i>
+                    <? echo $_SESSION['username'] ?>
+                </a>
+                <div class="dropdown-menu">
+                    <a class="dropdown-item" href="#PROFILE">
+                        <i class="fa fa-vcard"></i>
+                        Ver Perfil
+                    </a>
+                    <a class="dropdown-item" href="login.php?logout">
+                        <i class="fa fa-power-off fa-ma-fix"></i>
+                        Cerrar Sesión
+                    </a>
+                </div>
+            </div>
         </li>
                 <?
         }

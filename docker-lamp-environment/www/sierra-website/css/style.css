@@ -12,8 +12,7 @@
 
 @media only screen and (max-width: 767px) {
     /* Mobile Mode */
-    .signup-btn,
-    .logout-btn {
+    .signup-btn {
         display: inline-block !important;
         margin-top: 2em !important;
         margin-bottom: 1em !important;
@@ -27,7 +26,7 @@
 @media screen and (min-width: 768px) {
     /* Desktop Mode */
     .signup-btn,
-    .logout-btn {
+    .dropdown-user {
         position: absolute;
     }
 }
@@ -63,6 +62,11 @@ body {
     margin-left: 12px;
     margin-right: -12px;
     margin-bottom: 18px;
+}
+
+.fa-ma-fix {
+    margin-left: 2px!important;
+    margin-right: 3px!important;
 }
 
 .nav-link {
@@ -104,7 +108,7 @@ body {
 }
 
 .signup-btn,
-.logout-btn {
+.dropdown-user {
     right: 80px;
     text-decoration: none;
     color: #ffffff;
@@ -119,8 +123,38 @@ body {
     background-clip: content-box, border-box;
 }
 
+.dropdown-user {
+    background: transparent!important;
+    color: #ffffff!important;
+    border: transparent!important;
+}
+
+.dropdown-menu {
+    margin-left: -12px!important;
+    margin-top: 12px;
+}
+
+.dropdown-menu::before {
+    content: '';
+    height: 0;
+    width: 0;
+    border-left: 12px solid transparent;
+    border-right: 12px solid transparent;
+    border-bottom: 12px solid #fff;
+    position: absolute;
+    top: 0px;
+    margin-top: -12px;
+    right: 20px;
+    z-index: 100;
+}
+
+.dropdown-menu a:hover {
+    background: #3893cd;
+    color: #ffffff;
+}
+
 .signup-btn span,
-.logout-btn span {
+.dropdown-user {
     display: block;
     padding: 8px 22px;
 }
@@ -130,10 +164,10 @@ body {
 }
 
 .signup-btn:hover,
-.logout-btn:hover {
+.dropdown-user .dropdown-toggle:hover {
     cursor: pointer;
     text-decoration: none;
-    color: #b2b1b1;
+    color: #b2b1b1!important;
 }
 
 .fancy-btn {
