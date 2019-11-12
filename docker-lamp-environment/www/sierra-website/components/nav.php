@@ -76,8 +76,7 @@ $current_file_name = basename($_SERVER['PHP_SELF']);
 
             // Check the following logic is for show the link to booking
 
-        
-            if($session->get('username')) {
+            if($session->get('username') && !$session->is_admin($_SESSION['username'])) {
         ?>    
                 <li class='nav-item'>
                     <a href="booking.php" class="nav-link">
