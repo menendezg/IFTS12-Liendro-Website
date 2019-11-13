@@ -95,7 +95,7 @@ $current_file_name = basename($_SERVER['PHP_SELF']);
                     <? echo $_SESSION['username'] ?>
                 </a>
                 <div class="dropdown-menu">
-                    <a class="dropdown-item" href="#PROFILE">
+                    <a class="dropdown-item" href="profile.php">
                         <i class="fa fa-vcard"></i>
                         Ver Perfil
                     </a>

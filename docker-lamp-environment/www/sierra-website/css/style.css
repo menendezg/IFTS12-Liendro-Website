@@ -663,3 +663,85 @@ small {
     color: white;
     background-color: red;
 }
+
+.form-group h4 {
+    color: #c7c7c7;
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 1.1;
+    margin-top: 24px;
+    margin-bottom: 0px;
+}
+
+.buttons button {
+    margin-right: 24px;
+}
+
+.separator {
+    display: flex;
+    align-items: center;
+    text-align: left;
+    color: #19d7f8;
+    font-size: 24px;
+    font-weight: bold;
+    letter-spacing: 0px;
+    text-transform: uppercase;
+    padding-left: 0px!important;
+}
+
+.separator::after {
+    content: '';
+    flex: 1;
+    border-bottom: 2px solid#19d7f8;
+}
+
+.separator::before {
+    margin-right: .25em;
+}
+
+.separator::after {
+    margin-left: .25em;
+}
+
+.panel-default {
+    border-color: #ddd;
+}
+
+.panel {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    background-color: #fff;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, .05);
+    box-shadow: 0 1px 1px rgba(0, 0, 0, .05);
+}
+
+.panel-default>.panel-heading {
+    color: #333;
+    background-color: #f5f5f5;
+    border-color: #ddd;
+}
+
+.panel-heading {
+    padding: 10px 15px;
+    border-bottom: 1px solid transparent;
+    border-top-left-radius: 3px;
+    border-top-right-radius: 3px;
+}
+
+.panel-body {
+    padding: 15px;
+}
+
+.panel-body span {
+    color: #919191;
+}
+
+#profileForm .form-control {
+    text-transform: capitalize;
+}
+
+.icon_category {
+    max-width: 64%;
+}
