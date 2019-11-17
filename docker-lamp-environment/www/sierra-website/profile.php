@@ -141,7 +141,7 @@ if ($session->is_admin($username)) {
               <i class="fa fa-check-circle"></i>
               Guardar
             </button>
-            <button class="btn btn-secondary" type="reset">
+            <button class="btn btn-secondary" type="reset" onClick="this.form.reset()">
               <i class="fa fa-repeat"></i>
               Reiniciar
             </button>
@@ -158,7 +158,44 @@ if ($session->is_admin($username)) {
 
       <div class="col-sm-9 custom_bottom">
         <div class="separator col-sm-12">Cambio de Contraseña</div>
-        <h1 style="color: white;">Work in progress...</h1>
+        <form class="form" action="##" method="post" id="passwordForm">
+          <div class="form-group row">
+            <div class="col-sm-6">
+              <label for="current_password">
+                <h4>Contraseña Actual</h4>
+              </label>
+              <input type="password" class="form-control" name="current_password" id="current_password" placeholder="Contraseña Actual">
+            </div>
+
+            <div class="col-sm-6"></div>
+
+            <div class="col-sm-6">
+              <label for="new_password">
+                <h4>Nueva Contraseña</h4>
+              </label>
+              <input type="password" class="form-control" name="new_password" id="new_password" placeholder="Nueva Contraseña">
+            </div>
+
+            <div class="col-sm-6"></div>
+
+            <div class="col-sm-6">
+              <label for="repeat_password">
+                <h4>Repetir Contraseña</h4>
+              </label>
+              <input type="password" class="form-control" name="repeat_password" id="repeat_password" placeholder="Repetir Contraseña">
+            </div>
+
+            <div class="col-sm-6"></div>
+          </div>
+
+          <div class="form-group buttons">
+            <br>
+            <button class="btn btn-success" type="submit">
+              <i class="fa fa-lock"></i>
+              Cambiar
+            </button>
+          </div>
+        </form>
       </div>
     </div>
     <!--/tab-content-->
