@@ -86,8 +86,22 @@ $current_file_name = basename($_SERVER['PHP_SELF']);
                 <?php
             }
 
+
+            if($session->get('username') && $session->is_admin($_SESSION['username'])) {
+        ?>    
+                <li class='nav-item'>
+                    <a href="dashboard.php" class="nav-link">
+                        <span>Admininistracion</span>
+                    </a>
+                </li>
+                <?php
+            }
+
+            
             if($session->get('username')) {
         ?>
+
+
         <li class="nav-item">
             <div class="dropdown dropdown-user">
                 <a class="dropdown-toggle" data-toggle="dropdown">

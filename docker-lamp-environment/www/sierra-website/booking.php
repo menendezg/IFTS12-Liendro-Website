@@ -88,7 +88,6 @@ if ($session->is_admin($username)) {
         // Style the following lists
 
         $turns=$session->get_turns($username);
-        $row=$turns->fetchArray();
         // note: we are doing this ugly way because turns always return with 1 element
         // i dont know why. This means: If you have 1 turn, return 1 element but
         // if you dont have turns return 1 too.
@@ -99,15 +98,12 @@ if ($session->is_admin($username)) {
         // an that runs ok. So if row is false. we handle the message with no schedule.
         // but if row is ok we handle the turns in diferents elements.
         //
-
-        if ($row) {
+        if (!empty($turns)) {
             while ($row = $turns->fetchArray()) {
                 echo "<li class='list-group-item text-center'> Fecha: {$row{'date'}} Status: {$row{'status'}}</li>";
             }
-        } else {
-            echo "<li class='list-group-item text center'> No tienes turnos agendados </li>";
         }
-        
+                
          
     
         
