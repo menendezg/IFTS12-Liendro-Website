@@ -16,12 +16,14 @@ if (!$session->is_admin($username)) {
 
 
 $users = $session->get_all_users();
+$cars = $session->get_all_cars();
 if ($_SERVER['REQUEST_METHOD']== 'POST') {
     $users_list = $_POST["users_list"];
+    $car_id = $_POST['car'];
     $date = $_POST["date"];
     $time = $_POST["time"];
     $date_time = $date.' '.$time;
-    $ret= $session->save_turn($users_list, $date_time);
+    $ret= $session->save_turn($users_list, $date_time, $car_id);
     if ($ret) {
         header('Location: thanks.php');
     }
@@ -108,6 +110,19 @@ if ($_SERVER['REQUEST_METHOD']== 'POST') {
                         <?php
                         while ($row=$users->fetchArray()) {
                             echo "<option value={$row{'person_id'}}> Nombre: {$row{'name'}} Apellido: {$row{'surname'}}</option>";
+                        }
+                        ?>
+                        </select> 
+                    </div>
+                </div>
+                <br>
+                <div class="row">  
+                    <div class="col">
+                        <select class="custom-select mr-sm-2" name="car">
+                        <option selected>Escoge el auto deseado</option>
+                        <?php
+                        while ($row=$cars->fetchArray()) {
+                            echo "<option value={$row{'car_id'}}> Marca: {$row{'Brand'}} Modelo: {$row{'model'}} Patente: {$row{'patent'}}</option>";
                         }
                         ?>
                         </select> 

@@ -112,13 +112,26 @@ class session
         $result = $db->query($sql);
         return $result;
     }
-    public function save_turn($user, $date_time)
+
+    public function get_all_cars()
+    {
+        /*
+         * return all cars from table cars
+         */
+        $db = new SQLite3('db/taller-sierra.db');
+        $sql = "SELECT * from cars;";
+        $result = $db->query($sql);
+        return $result;
+    }
+
+    public function save_turn($user, $date_time, $car)
     {
         $person_id=(int)$user;
+        $car_id=(int)$car;
         $db = new SQLite3('db/taller-sierra.db');
         $sql =<<<EOF
-            INSERT INTO turns(person_id, date, status)
-            VALUES('$person_id', '$date_time', 'pendiente');
+            INSERT INTO turns(person_id, car_id, date, status)
+            VALUES('$person_id', $car_id,  '$date_time', 'PENDIENTE');
 EOF;
         $result = $db->exec($sql);
         if (!$result) {
