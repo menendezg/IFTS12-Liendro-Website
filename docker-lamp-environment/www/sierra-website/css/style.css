@@ -6,6 +6,48 @@
  * background (grey): #3e4356
  */
 
+@font-face {
+    font-family: 'License Plate';
+    src: url('../ttf/LicensePlate.ttf');
+}
+
+.patent {
+    background: url(../img/patente.png);
+    background-size: cover;
+    font-family: 'License Plate';
+    font-size: 1.2em;
+    color: white;
+    padding: 10px 24px;
+    padding-top: 14px;
+}
+
+.status {
+    right: 12px;
+    display: inline-block;
+    top: 12px;
+    position: absolute;
+}
+
+.status status {
+    background: #2b6374;
+    color: white;
+    padding: 4px 10px;
+    border-radius: 4px;
+}
+
+.second-row {
+    display: inline-block;
+    margin-top: 18px;
+    margin-right: 32px;
+}
+
+.patent-item {
+    right: 12px;
+    display: inline-block;
+    bottom: 12px;
+    position: absolute;
+}
+
 .primary-text-color {
     color: #b2b1b1 !important;
 }
@@ -44,6 +86,10 @@ body {
 
 .nopadding {
     padding: 0;
+}
+
+.custom-top {
+    padding-top: 80px;
 }
 
 .custom_bottom {
@@ -744,4 +790,8 @@ small {
 
 .icon_category {
     max-width: 64%;
+}
+
+.lead-white {
+    color: #c7c7c7;
 }

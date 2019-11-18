@@ -63,24 +63,24 @@ if ($session->is_admin($username)) {
   <body>
     <?php
     require_once 'components/nav.php';
-?>
-   
+    ?>
+
+    <div class="">
+      <div class="jumbotron jumbotron-services custom-jumbotron">
+        <h1 class="display-4 ml-4">TURNOS</h1>
+      </div>
+    </div>
 
     <div class="container">
       <div class="row">
         <div class="col-sm-12">
-          <div class="jumbotron custom-jumbotron">
-            <h1 class="display-4 primary-title subpage-title" style="text-align: left!important;">
-                Turnos
-            </h1>
-            <p class="lead">
-            Bienvenido <?php echo $username; ?>, este tu panel de turnos de turnos
-            </p>
-          </div>
+          <p class="lead lead-white">
+            Bienvenido <b style="color: white;"><?php echo $username; ?></b>, este es tu panel de turnos.
+          </p>
         </div>
       </div>
 
-      <div class="row justify-content-center custom_bottom">
+      <div class="row justify-content-center custom-top custom_bottom">
         <div class="col-sm-8">
         <ul class="list-group">
         <?php
@@ -100,7 +100,27 @@ if ($session->is_admin($username)) {
         //
         if (!empty($turns)) {
             while ($row = $turns->fetchArray()) {
-                echo "<li class='list-group-item text-center'> Fecha: {$row{'date'}} Status: {$row{'status'}}</li>";
+                echo "<li class='list-group-item turns-status'>
+                        <span>
+                          <i class='fa fa-clock-o'></i>
+                          <b>Fecha:</b> {$row{'date'}}
+                        </span>
+                        <span class='status'>
+                          <i class='fa fa-flag'></i>
+                          <b>Status:</b> <status>{$row{'status'}}</status>
+                        </span>
+                        
+                        <br>
+                        
+                        <span class='second-row'>
+                          <i class='fa fa-car'></i>
+                          <b>Auto:</b> {$row{'brand'}} {$row{'model'}}
+                        </span>
+                        <span class='patent-item'>
+                          <b>Patente:</b> 
+                          <patent class='patent'>{$row{'patent'}}</patent>
+                        </span>
+                      </li>";
             }
         }
                 
