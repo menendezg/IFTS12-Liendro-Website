@@ -92,7 +92,7 @@ class session
          */
         $person_id = $this->get_person_id($username);
         $db = new SQLite3('db/taller-sierra.db');
-        $sql = "SELECT date, status from turns WHERE person_id = '$person_id';";
+        $sql = "SELECT turns.date, turns.status, cars.brand, cars.model, cars.patent from turns, cars WHERE turns.person_id = '$person_id' AND turns.car_id = cars.car_id;";
         $result = $db->query($sql);
         if (count($result)>0) {
             return $result;

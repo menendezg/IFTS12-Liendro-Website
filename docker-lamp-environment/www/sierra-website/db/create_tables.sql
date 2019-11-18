@@ -38,8 +38,13 @@ CREATE TABLE cars (
 CREATE TABLE turns (
     turn_id INTEGER PRIMARY KEY,
     person_id INTEGER,
+    car_id INTEGER,
     date TEXT,
     status TEXT,
+    FOREIGN KEY (car_id)
+        REFERENCES cars(car_id)
+        ON DELETE CASCADE
+        ON UPDATE NO ACTION,
     FOREIGN KEY (person_id)
         REFERENCES persons(person_id)
         ON DELETE CASCADE
