@@ -63,24 +63,24 @@ if ($session->is_admin($username)) {
   <body>
     <?php
     require_once 'components/nav.php';
-?>
-   
+    ?>
+
+    <div class="">
+      <div class="jumbotron jumbotron-services custom-jumbotron">
+        <h1 class="display-4 ml-4">TURNOS</h1>
+      </div>
+    </div>
 
     <div class="container">
       <div class="row">
         <div class="col-sm-12">
-          <div class="jumbotron custom-jumbotron">
-            <h1 class="display-4 primary-title subpage-title" style="text-align: left!important;">
-                Turnos
-            </h1>
-            <p class="lead">
-            Bienvenido <?php echo $username; ?>, este tu panel de turnos de turnos
-            </p>
-          </div>
+          <p class="lead">
+            Bienvenido <b style="color: white;"><?php echo $username; ?></b>, este es tu panel de turnos.
+          </p>
         </div>
       </div>
 
-      <div class="row justify-content-center custom_bottom">
+      <div class="row justify-content-center custom-top custom_bottom">
         <div class="col-sm-8">
         <ul class="list-group">
         <?php

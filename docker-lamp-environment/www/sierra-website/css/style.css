@@ -46,6 +46,10 @@ body {
     padding: 0;
 }
 
+.custom-top {
+    padding-top: 80px;
+}
+
 .custom_bottom {
     padding-bottom: 100px;
 }
@@ -744,4 +748,8 @@ small {
 
 .icon_category {
     max-width: 64%;
+}
+
+.lead {
+    color: #c7c7c7;
 }
