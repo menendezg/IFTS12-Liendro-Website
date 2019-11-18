@@ -100,4 +100,31 @@ class session
             return false;
         }
     }
+
+
+    public function get_all_users()
+    {
+        /*
+         * return all users from table users
+         */
+        $db = new SQLite3('db/taller-sierra.db');
+        $sql = "SELECT * from persons;";
+        $result = $db->query($sql);
+        return $result;
+    }
+    public function save_turn($user, $date_time)
+    {
+        $person_id=(int)$user;
+        $db = new SQLite3('db/taller-sierra.db');
+        $sql =<<<EOF
+            INSERT INTO turns(person_id, date, status)
+            VALUES('$person_id', '$date_time', 'pendiente');
+EOF;
+        $result = $db->exec($sql);
+        if (!$result) {
+            echo $db->lastErrorMsg();
+        } else {
+            return true;
+        }
+    }
 }
