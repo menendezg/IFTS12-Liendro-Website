@@ -13,6 +13,21 @@ $username = $session->get('username');
 if (!$session->is_admin($username)) {
     header('Location: login.php');
 }
+
+
+$users = $session->get_all_users();
+$cars = $session->get_all_cars();
+if ($_SERVER['REQUEST_METHOD']== 'POST') {
+    $users_list = $_POST["users_list"];
+    $car_id = $_POST['car'];
+    $date = $_POST["date"];
+    $time = $_POST["time"];
+    $date_time = $date.' '.$time;
+    $ret= $session->save_turn($users_list, $date_time, $car_id);
+    if ($ret) {
+        header('Location: thanks.php?action=Creado');
+    }
+}
 ?>
 
 <!DOCTYPE html>
@@ -60,25 +75,67 @@ if (!$session->is_admin($username)) {
             Bienvenido <?php echo $username; ?>, este tu panel de administrcion
             de turnos
             </p>
+            <p>
+                Por favor recordar las siguientes instrucciones a la hora 
+                de utilizar el sistema <br>
+                1. selecciona la fecha deseada <br>
+                2. selecciona el usuario por nombre y apellido
+            </p>
           </div>
         </div>
       </div>
 
       <div class="row justify-content-center custom_bottom">
         <div class="col-sm-8">
-        <div class="list-group">
-            <a href="create_turn.php" class="list-group-item list-group-item-action active">
-                Crear nuevo turno
-            </a>
-            <a href="see_all_turns.php" class="list-group-item list-group-item-action">
-                Consultar Turnos
-            </a>
-        </div>
+            <form action="create_turn.php" method="POST">
+                <p>Seleccione la fecha deseada</p>
+                <div class="row">
+                    <div class="col">
+                        <input type="date" name='date' class="form-control" type="">
+                    </div>
+                </div>
+                <p>Seleccione la hora y minutos deseados ( de 0900 a 1800 )</p>
+                <div class='row'>
+                    <div class='col'>
+                     <input type="time" name="time" id="appt" name="appt"
+                     min="09:00" max="18:00" required>
+                    </div>
+                 </div>
+                <br>
+
+                <div class="row">  
+                    <div class="col">
+                        <select class="custom-select mr-sm-2" name="users_list">
+                        <option selected>Escoge el nombre del usuario</option>
+                        <?php
+                        while ($row=$users->fetchArray()) {
+                            echo "<option value={$row{'person_id'}}> Nombre: {$row{'name'}} Apellido: {$row{'surname'}}</option>";
+                        }
+                        ?>
+                        </select> 
+                    </div>
+                </div>
+                <br>
+                <div class="row">  
+                    <div class="col">
+                        <select class="custom-select mr-sm-2" name="car">
+                        <option selected>Escoge el auto deseado</option>
+                        <?php
+                        while ($row=$cars->fetchArray()) {
+                            echo "<option value={$row{'car_id'}}> Marca: {$row{'Brand'}} Modelo: {$row{'model'}} Patente: {$row{'patent'}}</option>";
+                        }
+                        ?>
+                        </select> 
+                    </div>
+                </div>
+                <button type="submit" class="btn btn-primary">Crear</button>
+            </form>
         </div>
       </div>
 
       <div class="row justify-content-center custom_bottom"></div>
     </div>
+
 
     <!-- footer -->
     <div class="container-fluid">

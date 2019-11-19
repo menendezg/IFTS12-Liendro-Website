@@ -13,6 +13,7 @@ $username = $session->get('username');
 if (!$session->is_admin($username)) {
     header('Location: login.php');
 }
+$turns = $session->get_all_turns();
 ?>
 
 <!DOCTYPE html>
@@ -57,26 +58,78 @@ if (!$session->is_admin($username)) {
                 Turnos
             </h1>
             <p class="lead">
-            Bienvenido <?php echo $username; ?>, este tu panel de administrcion
-            de turnos
+            Bienvenido <?php echo $username; ?>, estos son todos los turnos agendados
             </p>
           </div>
         </div>
       </div>
-
-      <div class="row justify-content-center custom_bottom">
+      <div class="row justify-content-center custom-top custom_bottom">
         <div class="col-sm-8">
-        <div class="list-group">
-            <a href="create_turn.php" class="list-group-item list-group-item-action active">
-                Crear nuevo turno
-            </a>
-            <a href="see_all_turns.php" class="list-group-item list-group-item-action">
-                Consultar Turnos
-            </a>
-        </div>
+        <ul class="list-group">
+        <?php
+        //TODO:
+        // Style the following lists
+
+        // note: we are doing this ugly way because turns always return with 1 element
+        // i dont know why. This means: If you have 1 turn, return 1 element but
+        // if you dont have turns return 1 too.
+        // to better understand  check session->get_turns.
+        
+        // so we doing this. because fetch array return false if he can't do his magic.
+        // fetch array make an associative array.
+        // an that runs ok. So if row is false. we handle the message with no schedule.
+        // but if row is ok we handle the turns in diferents elements.
+//
+        if (!empty($turns)) {
+            while ($row = $turns->fetchArray()) {
+                echo "
+                        <li class='list-group-item turns-status'>
+                        <span>
+                          <i class='fa fa-clock-o'></i>
+                          <b>Nombre:</b> {$row{'name'}}
+                        </span>
+                        <span>
+                          <b>Apellido:</b>{$row{'surname'}}
+                        </span>
+
+                        <span class='status'>
+                          <a href=delete_record.php?id={$row{'turn_id'}}><i class='fa fa-eraser'> borrar</i></a>
+                        </span>
+                        <br>
+<li class='list-group-item turns-status'>
+                        <span>
+                          <i class='fa fa-clock-o'></i>
+                          <b>Fecha:</b> {$row{'date'}}
+                        </span>
+                        <span class='status'>
+                          <i class='fa fa-flag'></i>
+                          <b>Status:</b> <status>{$row{'status'}}</status>
+                        </span>
+                        
+                        <br>
+                        
+                        <span class='second-row'>
+                          <i class='fa fa-car'></i>
+                          <b>Auto:</b> {$row{'brand'}} {$row{'model'}}
+                        </span>
+                        <span class='patent-item'>
+                          <b>Patente:</b> 
+                          <patent class='patent'>{$row{'patent'}}</patent>
+                        </span>
+                      </li>";
+            }
+        }
+                
+         
+    
+        
+        ?>
+        </ul>
         </div>
       </div>
 
+
+      
       <div class="row justify-content-center custom_bottom"></div>
     </div>
 

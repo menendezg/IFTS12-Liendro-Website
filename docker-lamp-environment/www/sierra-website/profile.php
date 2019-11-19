@@ -97,7 +97,20 @@ if ($session->is_admin($username)) {
 
       <div class="col-sm-9 custom_bottom">
         <div class="separator col-sm-12">Información</div>
-        <form class="form" action="##" method="post" id="profileForm">
+        <?
+          if (($_GET["status"] == 1) && !empty($_GET)){
+            echo "<div class='alert alert-success' style='margin-top: 12px;'>
+                    <button type='button' class='close' data-dismiss='alert'>&times;</button>
+                    <strong>¡Exito!</strong>, los datos se han actualziado correctamente.
+                  </div>";
+          } elseif (($_GET["status"] == 0) && !empty($_GET)) {
+            echo "<div class='alert alert-danger' style='margin-top: 12px;'>
+                    <button type='button' class='close' data-dismiss='alert'>&times;</button>
+                    <strong>¡Error!</strong>, NO se pudieron actualizar los datos.
+                  </div>";
+          }
+        ?>
+        <form class="form" action="utils/persons.php" method="POST" id="profileForm">
           <div class="form-group row">
             <div class="col-sm-6">
               <label for="first_name">
