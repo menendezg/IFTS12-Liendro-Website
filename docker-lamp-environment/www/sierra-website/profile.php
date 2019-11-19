@@ -110,7 +110,7 @@ if ($session->is_admin($username)) {
                   </div>";
           }
         ?>
-        <form class="form" action="utils/persons.php" method="POST" id="profileForm">
+        <form class="form" action="utils/persons.php" method="POST">
           <div class="form-group row">
             <div class="col-sm-6">
               <label for="first_name">
