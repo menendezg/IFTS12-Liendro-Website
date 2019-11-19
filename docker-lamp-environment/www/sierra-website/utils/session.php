@@ -113,6 +113,35 @@ class session
         return $result;
     }
 
+    public function get_all_turns()
+    {
+        /*
+         * return all motkher fuckings turns
+         */
+        $db = new SQLite3('db/taller-sierra.db');
+        $sql =<<<EOF
+            SELECT
+                turns.turn_id,
+                turns.date, 
+                turns.status, 
+                cars.brand, 
+                cars.model, 
+                cars.patent,
+                persons.name, 
+                persons.surname
+            FROM turns, cars, persons
+            WHERE 
+                turns.car_id = cars.car_id
+            AND turns.person_id = persons.person_id;
+EOF;
+        $result = $db->query($sql);
+        if (count($result)>0) {
+            return $result;
+        } else {
+            return false;
+        }
+    }
+
     public function get_all_cars()
     {
         /*
@@ -138,6 +167,29 @@ EOF;
             echo $db->lastErrorMsg();
         } else {
             return true;
+        }
+    }
+
+    public function get_turn_by_id($turn_id)
+    {
+        $db = new SQLite3('db/taller-sierra.db');
+        $sql = "SELECT turns.turn_id,  turns.date, turns.status, cars.brand, cars.model, cars.patent from turns, cars WHERE turns.turn_id = '$turn_id' AND turns.car_id = cars.car_id;";
+        $result = $db->query($sql);
+        if (count($result)>0) {
+            return $result;
+        } else {
+            return false;
+        }
+    }
+    public function delete_turn_by_id($turn_id)
+    {
+        $db = new SQLite3('db/taller-sierra.db');
+        $sql = "DELETE from turns WHERE turns.turn_id = '$turn_id';";
+        $result = $db->exec($sql);
+        if (count($result)>0) {
+            return $result;
+        } else {
+            return false;
         }
     }
 }

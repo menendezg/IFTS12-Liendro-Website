@@ -13,6 +13,17 @@ $username = $session->get('username');
 if (!$session->is_admin($username)) {
     header('Location: login.php');
 }
+if ($_SERVER['REQUEST_METHOD']== 'GET') {
+    $turn_id= $_GET["id"];
+    $record= $session->get_turn_by_id($turn_id);
+}
+if ($_SERVER['REQUEST_METHOD']== 'POST') {
+    $turn_id= $_POST["record_to_delete"];
+    $record= $session->delete_turn_by_id($turn_id);
+    if ($record) {
+        header('Location: thanks.php?action=Borrado');
+    }
+}
 ?>
 
 <!DOCTYPE html>
@@ -57,26 +68,71 @@ if (!$session->is_admin($username)) {
                 Turnos
             </h1>
             <p class="lead">
-            Bienvenido <?php echo $username; ?>, este tu panel de administrcion
-            de turnos
+            Bienvenido <?php echo $username; ?>, estos son todos los turnos agendados
             </p>
           </div>
         </div>
       </div>
-
-      <div class="row justify-content-center custom_bottom">
+      <div class="row justify-content-center custom-top custom_bottom">
         <div class="col-sm-8">
-        <div class="list-group">
-            <a href="create_turn.php" class="list-group-item list-group-item-action active">
-                Crear nuevo turno
-            </a>
-            <a href="see_all_turns.php" class="list-group-item list-group-item-action">
-                Consultar Turnos
-            </a>
-        </div>
-        </div>
-      </div>
+     <form action="delete_record.php" method="POST">
+        <ul class="list-group">
+        <?php
+        //TODO:
+        // Style the following lists
 
+        // note: we are doing this ugly way because turns always return with 1 element
+        // i dont know why. This means: If you have 1 turn, return 1 element but
+        // if you dont have turns return 1 too.
+        // to better understand  check session->get_turns.
+        
+        // so we doing this. because fetch array return false if he can't do his magic.
+        // fetch array make an associative array.
+        // an that runs ok. So if row is false. we handle the message with no schedule.
+        // but if row is ok we handle the turns in diferents elements.
+//
+        if (!empty($record)) {
+            while ($row = $record->fetchArray()) {
+                echo"
+                    <input type='hidden' name='record_to_delete' value={$row{'turn_id'}}>              
+                    <li class='list-group-item turns-status'>
+                    <span>
+                          <i class='fa fa-clock-o'></i>
+                          <b>Fecha:</b> {$row{'date'}}
+                        </span>
+                        <span class='status'>
+                          <i class='fa fa-flag'></i>
+                          <b>Status:</b> <status>{$row{'status'}}</status>
+                        </span>
+                        
+                        <br>
+                        
+                        <span class='second-row'>
+                          <i class='fa fa-car'></i>
+                          <b>Auto:</b> {$row{'brand'}} {$row{'model'}}
+                        </span>
+                        <span class='patent-item'>
+                          <b>Patente:</b> 
+                          <patent class='patent'>{$row{'patent'}}</patent>
+                        </span>
+                      </li>";
+            }
+        }
+?>
+
+        </ul>
+        <p>Esta seguro que desea borrar el registro? Presione aceptar para confirmar
+           o cancelar  para volver al inicio</p>
+        <button type="submit" class="btn btn-danger">BORRAR</button>
+     </form>
+    <br>
+    
+    <button type="button" class="btn btn-primary">Primary</button>
+   </div>
+      </div>
+     
+
+      
       <div class="row justify-content-center custom_bottom"></div>
     </div>
 
@@ -118,4 +174,4 @@ if (!$session->is_admin($username)) {
       integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
       crossorigin="anonymous"
     ></script>
-  </body>
+  <

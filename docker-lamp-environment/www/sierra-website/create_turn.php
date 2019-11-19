@@ -25,7 +25,7 @@ if ($_SERVER['REQUEST_METHOD']== 'POST') {
     $date_time = $date.' '.$time;
     $ret= $session->save_turn($users_list, $date_time, $car_id);
     if ($ret) {
-        header('Location: thanks.php');
+        header('Location: thanks.php?action=Creado');
     }
 }
 ?>

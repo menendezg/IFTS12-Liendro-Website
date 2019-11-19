@@ -6,7 +6,10 @@
     
     $TITLE = "SIERRMAX";
     include('utils/utils.php');
-    
+if ($_SERVER['REQUEST_METHOD']== 'GET') {
+    $action= $_GET["action"];
+}
+
 ?>
 
 <!DOCTYPE html>
@@ -46,7 +49,7 @@
         <div class="row justify-content-md-center login-form">
             <div class="col-sm-8">
                 <div class="jumbotron">
-                    <h1 class="display-4">Turno creado con exito!</h1>
+                <h1 class="display-4">Turno <?php echo $action; ?> con exito!</h1>
                     <p class="lead">
                      Gracias por usar nuestros servicios.
                     </p>
@@ -55,7 +58,7 @@
                         Si deseas volver a crear otro turno podes hacerlo 
                         haciendo click en el boton debajo 
                     </p>
-                    <a class="btn btn-primary" href="dashboard.php" role="button">Volver a crear otro turno</a>
+                    <a class="btn btn-primary" href="index.php" role="button">Volver al inicio</a>
                 </div>
       </div>
     </div>
