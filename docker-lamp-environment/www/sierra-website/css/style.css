@@ -28,6 +28,16 @@
     position: absolute;
 }
 
+.customer {
+    text-transform: capitalize;
+    position: absolute;
+    margin-bottom: 2px!important;
+}
+
+.turn-separator {
+    min-height: 18px;
+}
+
 .status status {
     background: #2b6374;
     color: white;

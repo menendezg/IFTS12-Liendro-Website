@@ -49,20 +49,20 @@ $turns = $session->get_all_turns();
     require_once 'components/nav.php';
 ?>
    
-
+   <div class="">
+    <div class="jumbotron jumbotron-services custom-jumbotron">
+      <h1 class="display-4 ml-4">TURNOS</h1>
+    </div>
+  </div>
     <div class="container">
       <div class="row">
         <div class="col-sm-12">
-          <div class="jumbotron custom-jumbotron">
-            <h1 class="display-4 primary-title subpage-title" style="text-align: left!important;">
-                Turnos
-            </h1>
-            <p class="lead">
-            Bienvenido <?php echo $username; ?>, estos son todos los turnos agendados
-            </p>
-          </div>
+          <p class="lead lead-white">
+            Bienvenido <b style="color: white;"><?php echo $username; ?></b>, estos son todos los turnos agendados.
+          </p>
         </div>
       </div>
+
       <div class="row justify-content-center custom-top custom_bottom">
         <div class="col-sm-8">
         <ul class="list-group">
@@ -82,21 +82,16 @@ $turns = $session->get_all_turns();
 //
         if (!empty($turns)) {
             while ($row = $turns->fetchArray()) {
-                echo "
-                        <li class='list-group-item turns-status'>
-                        <span>
-                          <i class='fa fa-clock-o'></i>
-                          <b>Nombre:</b> {$row{'name'}}
+                echo "<li class='list-group-item turns-status'>
+                        <span class='customer'>
+                          <i class='fa fa-user-circle'></i>
+                          <b>Cliente:</b> {$row{'surname'}} {$row{'name'}}
                         </span>
-                        <span>
-                          <b>Apellido:</b>{$row{'surname'}}
-                        </span>
-
+                        <div class='turn-separator'></div>
                         <span class='status'>
                           <a href=delete_record.php?id={$row{'turn_id'}}><i class='fa fa-eraser'> borrar</i></a>
                         </span>
                         <br>
-<li class='list-group-item turns-status'>
                         <span>
                           <i class='fa fa-clock-o'></i>
                           <b>Fecha:</b> {$row{'date'}}
