@@ -169,7 +169,24 @@ EOF;
             return true;
         }
     }
-
+    public function change_state_turn($turn_id, $action)
+    {
+        
+        $db = new SQLite3('db/taller-sierra.db');
+         $sql=<<<EOF
+            UPDATE
+                turns
+            SET
+                status='$action' 
+            WHERE turn_id='$turn_id'
+EOF;
+        $result = $db->query($sql);
+        if (count($result)>0) {
+            return $result;
+        } else {
+            return false;
+        }
+    }
     public function get_turn_by_id($turn_id)
     {
         $db = new SQLite3('db/taller-sierra.db');

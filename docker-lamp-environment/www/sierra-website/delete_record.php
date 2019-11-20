@@ -15,7 +15,13 @@ if (!$session->is_admin($username)) {
 }
 if ($_SERVER['REQUEST_METHOD']== 'GET') {
     $turn_id= $_GET["id"];
-    $record= $session->get_turn_by_id($turn_id);
+    if (isset($_GET["state"])) {
+        $state= $_GET["state"];
+        $session->change_state_turn($turn_id, $state);
+        header('Location: thanks.php?action=Actualizado');
+    } else {
+        $record= $session->get_turn_by_id($turn_id);
+    }
 }
 if ($_SERVER['REQUEST_METHOD']== 'POST') {
     $turn_id= $_POST["record_to_delete"];
@@ -126,8 +132,7 @@ if ($_SERVER['REQUEST_METHOD']== 'POST') {
         <button type="submit" class="btn btn-danger">BORRAR</button>
      </form>
     <br>
-    
-    <button type="button" class="btn btn-primary">Primary</button>
+    <a class="btn btn-primary" href="index.php" role="button">Cancelar</a>
    </div>
       </div>
      

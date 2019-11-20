@@ -83,15 +83,18 @@ $turns = $session->get_all_turns();
         if (!empty($turns)) {
             while ($row = $turns->fetchArray()) {
                 echo "<li class='list-group-item turns-status'>
-                        <span class='customer'>
+                       <div class='delete-record-row'>
+                          <a href=delete_record.php?id={$row{'turn_id'}}><i class='fa fa-eraser'> Borrar registro</i></a>
+                          <a href=delete_record.php?id={$row{'turn_id'}}&state=Listo><i class='fa fa-eraser'> Cambiar a Listo</i></a>
+                          <a href=delete_record.php?id={$row{'turn_id'}}&state=Trabajando><i class='fa fa-eraser'> Cambiar a En Progreso</i></a>
+                        </div>
+
+                         <span class='customer'>
                           <i class='fa fa-user-circle'></i>
                           <b>Cliente:</b> {$row{'surname'}} {$row{'name'}}
                         </span>
                         <div class='turn-separator'></div>
-                        <span class='status'>
-                          <a href=delete_record.php?id={$row{'turn_id'}}><i class='fa fa-eraser'> borrar</i></a>
-                        </span>
-                        <br>
+                                              <br>
                         <span>
                           <i class='fa fa-clock-o'></i>
                           <b>Fecha:</b> {$row{'date'}}
@@ -111,6 +114,8 @@ $turns = $session->get_all_turns();
                           <b>Patente:</b> 
                           <patent class='patent'>{$row{'patent'}}</patent>
                         </span>
+
+                        
                       </li>";
             }
         }
