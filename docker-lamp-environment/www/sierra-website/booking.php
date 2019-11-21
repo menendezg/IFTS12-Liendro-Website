@@ -98,8 +98,9 @@ if ($session->is_admin($username)) {
         // an that runs ok. So if row is false. we handle the message with no schedule.
         // but if row is ok we handle the turns in diferents elements.
         //
-        if (!empty($turns)) {
-            while ($row = $turns->fetchArray()) {
+        $row = $turns->fetchArray();
+        if (!empty($row)) {
+            do {
                 echo "<li class='list-group-item turns-status'>
                         <span>
                           <i class='fa fa-clock-o'></i>
@@ -121,7 +122,14 @@ if ($session->is_admin($username)) {
                           <patent class='patent'>{$row{'patent'}}</patent>
                         </span>
                       </li>";
-            }
+            } while ($row = $turns->fetchArray());
+        } else {
+          echo "<div class='list-group'>
+                  <div class='list-group-item list-group-item-action'>
+                      <i class='fa fa-info-circle'></i>
+                      Usted no tiene turnos asignados.
+                  </div>
+                </div>";
         }
                 
          

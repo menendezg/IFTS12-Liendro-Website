@@ -123,7 +123,7 @@ if ($_SERVER['REQUEST_METHOD']== 'POST') {
                         <option selected>Escoge el auto deseado</option>
                         <?php
                         while ($row=$cars->fetchArray()) {
-                            echo "<option value={$row{'car_id'}}> Marca: {$row{'Brand'}} Modelo: {$row{'model'}} Patente: {$row{'patent'}}</option>";
+                            echo "<option value={$row{'car_id'}}> Marca: {$row{'brand'}} | Modelo: {$row{'model'}} | Patente: {$row{'patent'}}</option>";
                         }
                         ?>
                         </select> 
