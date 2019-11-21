@@ -46,7 +46,7 @@
     </h3>
 
     <!--Form with header-->
-    <form action="mail.php" method="POST" class="custom_bottom">
+    <form action="utils/email.php" method="POST" class="custom_bottom">
       <div class="card border-fancy rounded-0">
         <div class="card-header p-0">
           <div class="bg-contact text-white text-center py-2" style="border-bottom: 1px solid #000;">
@@ -56,6 +56,19 @@
         </div>
         <div class="card-body p-3">
 
+        <?
+          if (($_GET["sended"] == 1) && ($_GET["sended"] != "")){
+            echo "<div class='alert alert-success' style='margin-top: 12px;'>
+                    <button type='button' class='close' data-dismiss='alert'>&times;</button>
+                    <strong>¡Exito!</strong>, el correo se envio correctamente.
+                  </div>";
+          } elseif (($_GET["sended"] == 0) && ($_GET["sended"] != "")) {
+            echo "<div class='alert alert-danger' style='margin-top: 12px;'>
+                    <button type='button' class='close' data-dismiss='alert'>&times;</button>
+                    <strong>¡Error!</strong>, NO se pudo enviar el correo.
+                  </div>";
+          }
+        ?>
           <!--Body-->
           <div class="form-group">
             <div class="input-group mb-2">
@@ -93,15 +106,16 @@
       </div>
     </form>
     <!--Form with header-->
+
+    <div class="contact-title">
+      <h3 class="primary-title subpage-subtitle text-center" style="margin-bottom: 1.2em;">
+        ¿Dónde estamos?
+      </h3>
+    </div>
   </div>
 
   <!--Google Map-->
     <div class="custom_bottom">
-      <div class="contact-title">
-        <h3 class="primary-title subpage-subtitle text-center" style="margin-bottom: 1.2em;">
-            ¿Dónde estamos?
-        </h3>
-      </div>
       <div class="google-map">  
           <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3282.3254378787597!2d-58.45054178545383!3d-34.646483280448344!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95bccbcf82ceea77%3A0x71ec3f853723e71b!2sPedernera%202790%2C%20C1406EFJ%20CABA!5e0!3m2!1ses-419!2sar!4v1570559186907!5m2!1ses-419!2sar"
                   frameborder="0"
