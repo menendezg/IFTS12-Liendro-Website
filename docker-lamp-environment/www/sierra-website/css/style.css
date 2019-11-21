@@ -21,11 +21,45 @@
     padding-top: 14px;
 }
 
-.status {
+.status, .status-all {
     right: 12px;
     display: inline-block;
-    top: 12px;
     position: absolute;
+}
+
+.status {
+    top: 12px;
+}
+
+.status-all {
+    bottom: 45%;
+}
+
+.delete-record-row {
+    font-size: 12px;
+    position: absolute;
+    top: 12px;
+    right: 12px;
+}
+
+.delete-record-row a {
+    color: black;
+    text-decoration: none;
+    border: 1px solid;
+    border-radius: 12px;
+    padding: 4px 8px;
+    margin-left: 4px;
+}
+
+.turns-buttons a:hover {
+    z-index: 2;
+    color: #fff;
+    background-color: #007bff;
+    border-color: #007bff;
+}
+
+.delete-record-row a:hover {
+    text-decoration: none;
 }
 
 .customer {
@@ -38,7 +72,7 @@
     min-height: 18px;
 }
 
-.status status {
+.status status, .status-all status {
     background: #2b6374;
     color: white;
     padding: 4px 10px;
@@ -804,4 +838,10 @@ small {
 
 .lead-white {
     color: #c7c7c7;
+}
+
+.lead-red {
+    color: rgb(224, 22, 22);
+    margin-top: 12px;
+    margin-left: 4px;
 }

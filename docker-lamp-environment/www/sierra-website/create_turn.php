@@ -63,42 +63,43 @@ if ($_SERVER['REQUEST_METHOD']== 'POST') {
     require_once 'components/nav.php';
 ?>
    
-
+    <div class="">
+      <div class="jumbotron jumbotron-services custom-jumbotron">
+        <h1 class="display-4 ml-4">CREAR TURNOS</h1>
+      </div>
+    </div>
     <div class="container">
       <div class="row">
         <div class="col-sm-12">
-          <div class="jumbotron custom-jumbotron">
-            <h1 class="display-4 primary-title subpage-title" style="text-align: left!important;">
-                Turnos
-            </h1>
-            <p class="lead">
-            Bienvenido <?php echo $username; ?>, este tu panel de administrcion
-            de turnos
-            </p>
-            <p>
-                Por favor recordar las siguientes instrucciones a la hora 
-                de utilizar el sistema <br>
-                1. selecciona la fecha deseada <br>
-                2. selecciona el usuario por nombre y apellido
-            </p>
-          </div>
+          <p class="lead lead-white">
+            Bienvenido <b style="color: white;"><?php echo $username; ?></b>, 
+            este tu panel de creación de turnos.
+          </p>
+          <p class="lead-white">
+            Por favor recordar las siguientes instrucciones a la hora 
+            de utilizar el sistema <br>
+            &nbsp;&nbsp; 1. selecciona la fecha deseada <br>
+            &nbsp;&nbsp; 2. selecciona el usuario por nombre y apellido
+          </p>
         </div>
       </div>
-
+      <br>
       <div class="row justify-content-center custom_bottom">
         <div class="col-sm-8">
+            <div class="separator col-sm-12">Nuevo Turno</div>
+            <br>
             <form action="create_turn.php" method="POST">
-                <p>Seleccione la fecha deseada</p>
                 <div class="row">
                     <div class="col">
+                        <p class="lead-white">Seleccione la fecha deseada</p>
                         <input type="date" name='date' class="form-control" type="">
                     </div>
                 </div>
-                <p>Seleccione la hora y minutos deseados ( de 0900 a 1800 )</p>
+                <br>
                 <div class='row'>
                     <div class='col'>
-                     <input type="time" name="time" id="appt" name="appt"
-                     min="09:00" max="18:00" required>
+                     <p class="lead-white">Seleccione la hora y minutos deseados ( de 09 a 18hs )</p>
+                     <input type="time" name="time" id="appt" name="appt" min="09:00" max="18:00" required>
                     </div>
                  </div>
                 <br>
@@ -109,7 +110,7 @@ if ($_SERVER['REQUEST_METHOD']== 'POST') {
                         <option selected>Escoge el nombre del usuario</option>
                         <?php
                         while ($row=$users->fetchArray()) {
-                            echo "<option value={$row{'person_id'}}> Nombre: {$row{'name'}} Apellido: {$row{'surname'}}</option>";
+                            echo "<option value={$row{'person_id'}}> Cliente: {$row{'surname'}} {$row{'name'}}</option>";
                         }
                         ?>
                         </select> 
@@ -128,7 +129,8 @@ if ($_SERVER['REQUEST_METHOD']== 'POST') {
                         </select> 
                     </div>
                 </div>
-                <button type="submit" class="btn btn-primary">Crear</button>
+                <br>
+                <button type="submit" class="btn btn-primary">Crear Turno</button>
             </form>
         </div>
       </div>

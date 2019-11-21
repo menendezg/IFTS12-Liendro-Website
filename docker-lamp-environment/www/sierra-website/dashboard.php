@@ -64,11 +64,13 @@ if (!$session->is_admin($username)) {
       <br>
       <div class="row justify-content-center custom_bottom">
         <div class="col-sm-8">
-        <div class="list-group">
-            <a href="create_turn.php" class="list-group-item list-group-item-action active">
-                Crear nuevo turno
+        <div class="list-group turns-buttons">
+            <a href="create_turn.php" class="list-group-item list-group-item-action">
+                <i class="fa fa-calendar-plus-o"></i>
+                Crear Nuevo Turno
             </a>
             <a href="see_all_turns.php" class="list-group-item list-group-item-action">
+                <i class="fa fa-calendar"></i>
                 Consultar Turnos
             </a>
         </div>

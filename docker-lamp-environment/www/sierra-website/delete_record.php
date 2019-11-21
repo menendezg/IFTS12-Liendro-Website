@@ -65,18 +65,17 @@ if ($_SERVER['REQUEST_METHOD']== 'POST') {
     require_once 'components/nav.php';
 ?>
    
-
+    <div class="">
+      <div class="jumbotron jumbotron-services custom-jumbotron">
+        <h1 class="display-4 ml-4">BORRAR TURNO</h1>
+      </div>
+    </div>
     <div class="container">
       <div class="row">
         <div class="col-sm-12">
-          <div class="jumbotron custom-jumbotron">
-            <h1 class="display-4 primary-title subpage-title" style="text-align: left!important;">
-                Turnos
-            </h1>
-            <p class="lead">
-            Bienvenido <?php echo $username; ?>, estos son todos los turnos agendados
-            </p>
-          </div>
+          <p class="lead lead-white">
+            Bienvenido <b style="color: white;"><?php echo $username; ?></b>, estos son todos los turnos agendados:
+          </p>
         </div>
       </div>
       <div class="row justify-content-center custom-top custom_bottom">
@@ -96,7 +95,7 @@ if ($_SERVER['REQUEST_METHOD']== 'POST') {
         // fetch array make an associative array.
         // an that runs ok. So if row is false. we handle the message with no schedule.
         // but if row is ok we handle the turns in diferents elements.
-//
+        //
         if (!empty($record)) {
             while ($row = $record->fetchArray()) {
                 echo"
@@ -127,12 +126,18 @@ if ($_SERVER['REQUEST_METHOD']== 'POST') {
 ?>
 
         </ul>
-        <p>Esta seguro que desea borrar el registro? Presione aceptar para confirmar
+        <p class="lead-red">Esta seguro que desea borrar el turno? Presione aceptar para confirmar
            o cancelar  para volver al inicio</p>
-        <button type="submit" class="btn btn-danger">BORRAR</button>
+        <button type="submit" class="btn btn-danger">
+          <i class='fa fa-trash'></i>
+          Borrar Turno
+        </button>
+        &nbsp; <a class="btn btn-primary" href="see_all_turns.php" role="button">
+                  <i class="fa fa-times-circle"></i>
+                  Cancelar
+                </a>
      </form>
-    <br>
-    <a class="btn btn-primary" href="index.php" role="button">Cancelar</a>
+
    </div>
       </div>
      

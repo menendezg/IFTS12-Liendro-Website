@@ -98,19 +98,19 @@ if ($session->is_admin($username)) {
       <div class="col-sm-9 custom_bottom">
         <div class="separator col-sm-12">Información</div>
         <?
-          if (($_GET["status"] == 1) && !empty($_GET)){
+          if (($_GET["status"] == 1) && ($_GET["status"] != "")){
             echo "<div class='alert alert-success' style='margin-top: 12px;'>
                     <button type='button' class='close' data-dismiss='alert'>&times;</button>
                     <strong>¡Exito!</strong>, los datos se han actualziado correctamente.
                   </div>";
-          } elseif (($_GET["status"] == 0) && !empty($_GET)) {
+          } elseif (($_GET["status"] == 0) && ($_GET["status"] != "")) {
             echo "<div class='alert alert-danger' style='margin-top: 12px;'>
                     <button type='button' class='close' data-dismiss='alert'>&times;</button>
                     <strong>¡Error!</strong>, NO se pudieron actualizar los datos.
                   </div>";
           }
         ?>
-        <form class="form" action="utils/persons.php" method="POST">
+        <form class="form custom-form" action="utils/persons.php" method="POST">
           <div class="form-group row">
             <div class="col-sm-6">
               <label for="first_name">
@@ -171,7 +171,30 @@ if ($session->is_admin($username)) {
 
       <div class="col-sm-9 custom_bottom">
         <div class="separator col-sm-12">Cambio de Contraseña</div>
-        <form class="form" action="##" method="post" id="passwordForm">
+        <?
+          if (($_GET["password_changed"] == 1) && ($_GET["password_changed"] != "")){
+            echo "<div class='alert alert-success' style='margin-top: 12px;'>
+                    <button type='button' class='close' data-dismiss='alert'>&times;</button>
+                    <strong>¡Exito!</strong>, los datos se han actualziado correctamente.
+                  </div>";
+          } elseif (($_GET["password_changed"] == 0) && ($_GET["password_changed"] != "")) {
+            echo "<div class='alert alert-danger' style='margin-top: 12px;'>
+                    <button type='button' class='close' data-dismiss='alert'>&times;</button>
+                    <strong>¡Error!</strong>, NO se pudieron actualizar los datos.
+                  </div>";
+          } elseif (($_GET["password_changed"] == 2) && ($_GET["password_changed"] != "")) {
+            echo "<div class='alert alert-warning' style='margin-top: 12px;'>
+                    <button type='button' class='close' data-dismiss='alert'>&times;</button>
+                    <strong>¡Error!</strong>, Las nuevas contraseñas no coinciden.
+                  </div>";
+          } elseif (($_GET["password_changed"] == 3) && ($_GET["password_changed"] != "")) {
+            echo "<div class='alert alert-warning' style='margin-top: 12px;'>
+                    <button type='button' class='close' data-dismiss='alert'>&times;</button>
+                    <strong>¡Error!</strong>, su contraseña actual no es la correcta.
+                  </div>";
+          }
+        ?>
+        <form class="form custom-form" action="utils/password.php" method="POST">
           <div class="form-group row">
             <div class="col-sm-6">
               <label for="current_password">

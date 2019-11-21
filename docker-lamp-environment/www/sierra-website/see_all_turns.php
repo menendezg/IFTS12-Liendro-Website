@@ -49,11 +49,11 @@ $turns = $session->get_all_turns();
     require_once 'components/nav.php';
 ?>
    
-   <div class="">
-    <div class="jumbotron jumbotron-services custom-jumbotron">
-      <h1 class="display-4 ml-4">TURNOS</h1>
+    <div class="">
+      <div class="jumbotron jumbotron-services custom-jumbotron">
+        <h1 class="display-4 ml-4">CONSULTA DE TURNOS</h1>
+      </div>
     </div>
-  </div>
     <div class="container">
       <div class="row">
         <div class="col-sm-12">
@@ -84,9 +84,9 @@ $turns = $session->get_all_turns();
             while ($row = $turns->fetchArray()) {
                 echo "<li class='list-group-item turns-status'>
                        <div class='delete-record-row'>
-                          <a href=delete_record.php?id={$row{'turn_id'}}><i class='fa fa-eraser'> Borrar registro</i></a>
-                          <a href=delete_record.php?id={$row{'turn_id'}}&state=Listo><i class='fa fa-eraser'> Cambiar a Listo</i></a>
-                          <a href=delete_record.php?id={$row{'turn_id'}}&state=Trabajando><i class='fa fa-eraser'> Cambiar a En Progreso</i></a>
+                          <a href='delete_record.php?id={$row{'turn_id'}}' style='color: red;'><i class='fa fa-trash'></i> Borrar Turno</a>
+                          <a href='delete_record.php?id={$row{'turn_id'}}&state=Listo' style='color: green;'><i class='fa fa-flag'></i> Cambiar a Listo</a>
+                          <a href='delete_record.php?id={$row{'turn_id'}}&state=Trabajando' style='color: blue;'><i class='fa fa-cog'></i> Cambiar a Trabajando</a>
                         </div>
 
                          <span class='customer'>
@@ -99,7 +99,7 @@ $turns = $session->get_all_turns();
                           <i class='fa fa-clock-o'></i>
                           <b>Fecha:</b> {$row{'date'}}
                         </span>
-                        <span class='status'>
+                        <span class='status-all'>
                           <i class='fa fa-flag'></i>
                           <b>Status:</b> <status>{$row{'status'}}</status>
                         </span>
