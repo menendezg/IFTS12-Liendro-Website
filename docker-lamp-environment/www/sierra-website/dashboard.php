@@ -73,6 +73,10 @@ if (!$session->is_admin($username)) {
                 <i class="fa fa-calendar"></i>
                 Consultar Turnos
             </a>
+            <a href="create_user.php" class="list-group-item list-group-item-action">
+                <i class="fa fa-user-plus"></i>
+                Crear Nuevo Usuario
+            </a>
         </div>
         </div>
       </div>

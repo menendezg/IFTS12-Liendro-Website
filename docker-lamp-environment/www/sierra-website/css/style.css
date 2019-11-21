@@ -80,6 +80,11 @@
     text-transform: uppercase;
 }
 
+.create-user i {
+    font-size: 12em;
+    color: #fff;
+}
+
 .second-row {
     display: inline-block;
     margin-top: 18px;
