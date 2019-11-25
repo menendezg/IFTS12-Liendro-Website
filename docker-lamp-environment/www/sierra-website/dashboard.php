@@ -50,7 +50,7 @@ if (!$session->is_admin($username)) {
    
    <div class="">
     <div class="jumbotron jumbotron-services custom-jumbotron">
-      <h1 class="display-4 ml-4">TURNOS</h1>
+      <h1 class="display-4 ml-4">PANEL DE ADMINISTRACION</h1>
     </div>
   </div>
     <div class="container">
