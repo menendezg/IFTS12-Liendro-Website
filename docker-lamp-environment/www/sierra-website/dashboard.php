@@ -57,7 +57,7 @@ if (!$session->is_admin($username)) {
       <div class="row">
         <div class="col-sm-12">
           <p class="lead lead-white">
-          Bienvenido <b style="color: white;"><?php echo $username; ?></b>, este tu panel de administrcion de turnos
+          Bienvenido <b style="color: white;"><?php echo $username; ?></b>, este tu panel de administración.
           </p>
         </div>
       </div>
