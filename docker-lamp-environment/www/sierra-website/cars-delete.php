@@ -3,6 +3,9 @@
 // Always in the init of php file when I want variables of session
 require_once("utils/session.php");
 $session = new session();
+
+$db = new SQLite3('db/taller-sierra.db');
+
 //prevnt and control
 if (!$session->get('username')) {
     header('Location: login.php');
@@ -13,7 +16,20 @@ $username = $session->get('username');
 if (!$session->is_admin($username)) {
     header('Location: login.php');
 }
-$turns = $session->get_all_turns();
+if ($_SERVER['REQUEST_METHOD'] == 'GET') {
+    $car_id= $_GET["id"];
+    $sql = "SELECT brand, model, color, patent, status, name, surname FROM cars, persons WHERE cars.person_id = persons.person_id AND car_id='$car_id';";
+    $result = $db->query($sql);
+}
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+    $car_id= $_POST["record_to_delete"];
+    $sql = "DELETE FROM cars WHERE cars.car_id = '$car_id';";
+    var_dump($sql);
+    $result2 = $db->exec($sql);
+    if (count($result2)>0) {
+      header('Location: thanks_car.php?action=Eliminado');
+    }
+}
 ?>
 
 <!DOCTYPE html>
@@ -51,20 +67,20 @@ $turns = $session->get_all_turns();
    
     <div class="">
       <div class="jumbotron jumbotron-services custom-jumbotron">
-        <h1 class="display-4 ml-4">CONSULTA DE TURNOS</h1>
+        <h1 class="display-4 ml-4">ELIMINAR AUTO</h1>
       </div>
     </div>
     <div class="container">
       <div class="row">
         <div class="col-sm-12">
           <p class="lead lead-white">
-            Bienvenido <b style="color: white;"><?php echo $username; ?></b>, estos son todos los turnos agendados.
+            Bienvenido <b style="color: white;"><?php echo $username; ?></b>, el siguiente auto va a eliminarse:
           </p>
         </div>
       </div>
-
       <div class="row justify-content-center custom-top custom_bottom">
         <div class="col-sm-8">
+     <form action="cars-delete.php" method="POST">
         <ul class="list-group">
         <?php
         //TODO:
@@ -80,24 +96,20 @@ $turns = $session->get_all_turns();
         // an that runs ok. So if row is false. we handle the message with no schedule.
         // but if row is ok we handle the turns in diferents elements.
         //
-        if (!empty($turns)) {
-            while ($row = $turns->fetchArray()) {
-                echo "<li class='list-group-item turns-status'>
-                       <div class='delete-record-row'>
-                          <a href='delete_record.php?id={$row{'turn_id'}}' style='color: red;'><i class='fa fa-trash'></i> Borrar Turno</a>
-                          <a href='delete_record.php?id={$row{'turn_id'}}&state=Listo' style='color: green;'><i class='fa fa-flag'></i> Cambiar a Listo</a>
-                          <a href='delete_record.php?id={$row{'turn_id'}}&state=Trabajando' style='color: blue;'><i class='fa fa-cog'></i> Cambiar a Trabajando</a>
-                        </div>
-
-                         <span class='customer'>
+        if (!empty($result)) {
+            while ($row = $result->fetchArray()) {
+                echo"
+                      <input type='hidden' name='record_to_delete' value='$car_id'>              
+                      <li class='list-group-item turns-status'>
+                        <span class='customer'>
                           <i class='fa fa-user-circle'></i>
-                          <b>Cliente:</b> {$row{'surname'}} {$row{'name'}}
+                          <b>Dueño:</b> {$row{'surname'}} {$row{'name'}}
                         </span>
                         <div class='turn-separator'></div>
                                               <br>
                         <span>
-                          <i class='fa fa-clock-o'></i>
-                          <b>Fecha:</b> {$row{'date'}}
+                          <i class='fa fa-car'></i>
+                          <b>Auto:</b> {$row{'brand'}} {$row{'model'}}
                         </span>
                         <span class='status-all'>
                           <i class='fa fa-flag'></i>
@@ -107,32 +119,34 @@ $turns = $session->get_all_turns();
                         <br>
                         
                         <span class='second-row'>
-                          <i class='fa fa-car'></i>
-                          <b>Auto:</b> {$row{'brand'}} {$row{'model'}}
+                          <i class='fa fa-tint'></i>
+                          <b>Color:</b> {$row{'color'}}
                         </span>
                         <span class='patent-item'>
                           <b>Patente:</b> 
                           <patent class='patent'>{$row{'patent'}}</patent>
                         </span>
-
-                        
                       </li>";
             }
-        } else {
-          echo "<li class='list-group-item turns-status'>
-                  <i class='fa fa-exclamation-circle'></i>
-                  No hay turnos agendados!
-                </li>";
         }
-                
-         
-    
-        
-        ?>
-        </ul>
-        </div>
-      </div>
+?>
 
+        </ul>
+        <p class="lead-red">Esta seguro que desea eliminar el auto? Presione Eliminar para confirmar
+           o Cancelar para volver atrás.</p>
+        <button type="submit" class="btn btn-danger">
+          <i class='fa fa-trash'></i>
+          Eliminar
+        </button>
+        &nbsp; <a class="btn btn-primary" href="see_all_cars.php" role="button">
+                  <i class="fa fa-times-circle"></i>
+                  Cancelar
+                </a>
+     </form>
+
+   </div>
+      </div>
+     
 
       
       <div class="row justify-content-center custom_bottom"></div>
@@ -176,4 +190,3 @@ $turns = $session->get_all_turns();
       integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
       crossorigin="anonymous"
     ></script>
-  </body>

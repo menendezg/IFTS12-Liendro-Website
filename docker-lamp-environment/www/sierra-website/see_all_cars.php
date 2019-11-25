@@ -13,7 +13,7 @@ $username = $session->get('username');
 if (!$session->is_admin($username)) {
     header('Location: login.php');
 }
-$turns = $session->get_all_turns();
+$cars = $session->get_all_cars();
 ?>
 
 <!DOCTYPE html>
@@ -51,14 +51,14 @@ $turns = $session->get_all_turns();
    
     <div class="">
       <div class="jumbotron jumbotron-services custom-jumbotron">
-        <h1 class="display-4 ml-4">CONSULTA DE TURNOS</h1>
+        <h1 class="display-4 ml-4">CONSULTA DE AUTOS</h1>
       </div>
     </div>
     <div class="container">
       <div class="row">
         <div class="col-sm-12">
           <p class="lead lead-white">
-            Bienvenido <b style="color: white;"><?php echo $username; ?></b>, estos son todos los turnos agendados.
+            Bienvenido <b style="color: white;"><?php echo $username; ?></b>, estos son todos los autos registrados.
           </p>
         </div>
       </div>
@@ -80,24 +80,30 @@ $turns = $session->get_all_turns();
         // an that runs ok. So if row is false. we handle the message with no schedule.
         // but if row is ok we handle the turns in diferents elements.
         //
-        if (!empty($turns)) {
-            while ($row = $turns->fetchArray()) {
+        if (!empty($cars)) {
+            while ($row = $cars->fetchArray()) {
+              $users = $session->get_all_users();
+              while ($user = $users->fetchArray()) {
+                if ($row['person_id'] == $user['person_id']) {
+                  $person = $user;
+                  break;
+                }
+              }
                 echo "<li class='list-group-item turns-status'>
                        <div class='delete-record-row'>
-                          <a href='delete_record.php?id={$row{'turn_id'}}' style='color: red;'><i class='fa fa-trash'></i> Borrar Turno</a>
-                          <a href='delete_record.php?id={$row{'turn_id'}}&state=Listo' style='color: green;'><i class='fa fa-flag'></i> Cambiar a Listo</a>
-                          <a href='delete_record.php?id={$row{'turn_id'}}&state=Trabajando' style='color: blue;'><i class='fa fa-cog'></i> Cambiar a Trabajando</a>
+                          <a href='cars-delete.php?id={$row{'car_id'}}' style='color: red;'><i class='fa fa-trash'></i> Borrar Auto</a>
+                          <a href='edit-car.php?id={$row{'car_id'}}' style='color: green;'><i class='fa fa-edit'></i> Editar Auto</a>
                         </div>
 
-                         <span class='customer'>
+                        <span class='customer'>
                           <i class='fa fa-user-circle'></i>
-                          <b>Cliente:</b> {$row{'surname'}} {$row{'name'}}
+                          <b>Dueño:</b> {$person{'surname'}} {$person{'name'}}
                         </span>
                         <div class='turn-separator'></div>
                                               <br>
                         <span>
-                          <i class='fa fa-clock-o'></i>
-                          <b>Fecha:</b> {$row{'date'}}
+                          <i class='fa fa-car'></i>
+                          <b>Auto:</b> {$row{'brand'}} {$row{'model'}}
                         </span>
                         <span class='status-all'>
                           <i class='fa fa-flag'></i>
@@ -107,8 +113,8 @@ $turns = $session->get_all_turns();
                         <br>
                         
                         <span class='second-row'>
-                          <i class='fa fa-car'></i>
-                          <b>Auto:</b> {$row{'brand'}} {$row{'model'}}
+                          <i class='fa fa-tint'></i>
+                          <b>Color:</b> {$row{'color'}}
                         </span>
                         <span class='patent-item'>
                           <b>Patente:</b> 
@@ -118,11 +124,6 @@ $turns = $session->get_all_turns();
                         
                       </li>";
             }
-        } else {
-          echo "<li class='list-group-item turns-status'>
-                  <i class='fa fa-exclamation-circle'></i>
-                  No hay turnos agendados!
-                </li>";
         }
                 
          

@@ -77,6 +77,17 @@ if (!$session->is_admin($username)) {
                 <i class="fa fa-user-plus"></i>
                 Crear Nuevo Usuario
             </a>
+            <a href="create_car.php" class="list-group-item list-group-item-action">
+                <div class="cfa-car-plus">
+                  <img src="img/car_plus.png">
+                  <img src="img/car_plush.png" class="img-top">
+                </div>
+                Añadir Nuevo Auto
+            </a>
+            <a href="see_all_cars.php" class="list-group-item list-group-item-action">
+                <i class="fa fa-car"></i>
+                Consultar Autos
+            </a>
         </div>
         </div>
       </div>

@@ -85,6 +85,38 @@
     color: #fff;
 }
 
+.cfa-car-plus {
+    max-width: 18px;
+    max-height: 18px;
+    display: inline-block;
+}
+
+.cfa-car-plus img {
+    max-width: 18px;
+    max-height: 18px;
+}
+
+
+.cfa-car-plus .img-top {
+    display: none;
+    position: absolute;
+    top: 17px;
+    left: 20px;
+    z-index: 99;
+}
+
+.add-car {
+    width: 230px;
+    height: auto;
+    align-self: center;
+    text-align: center;
+    margin: 0 auto;
+}
+
+.list-group-item:hover .cfa-car-plus .img-top {
+    display: inline;
+}
+
 .second-row {
     display: inline-block;
     margin-top: 18px;
